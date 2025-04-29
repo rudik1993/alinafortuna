@@ -5,31 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alina Fortuna</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.0.0/dist/fullcalendar.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@3.0.0/dist/fullcalendar.min.css" />
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <h1>Alina Fortuna</h1>
-        <p>Консультации по нумерологии и личной гармонии</p>
-    </header>
+    <!-- Кнопки -->
+    <section class="buttons">
+        <button onclick="location.href='#reviews'">Далее</button>
+        <button onclick="location.href='#socials'">Отзывы</button>
+    </section>
 
-    <!-- Main Content Section -->
-    <section class="main-content">
-        <div class="intro">
-            <h2>Добро пожаловать на сайт</h2>
-            <p>Мы предлагаем уникальные консультации и поддержку в решении жизненных вопросов с помощью нумерологии.</p>
+    <!-- Отзывы -->
+    <section id="reviews">
+        <h2>Отзывы</h2>
+        <div class="review">
+            <p>"Отличная консультация! Помогла разобраться в жизни!" - Иван</p>
+        </div>
+        <div class="review">
+            <p>"Очень помогла нумерология! Спасибо, Алина!" - Ольга</p>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about">
-        <h2>О нас</h2>
-        <p>Мы предлагаем комплексный подход к решению ваших вопросов, используя древние знания и современные методы.</p>
+    <!-- Ссылки на соцсети -->
+    <section id="socials">
+        <h2>Наши соцсети</h2>
+        <a href="https://www.instagram.com/yourprofile" target="_blank">Instagram</a>
+        <a href="https://t.me/yourprofile" target="_blank">Telegram</a>
+        <a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <p>&copy; 2025 Alina Fortuna. Все права защищены.</p>
-    </footer>
+    <!-- Календарь -->
+    <section id="calendar">
+        <h2>Записаться на сеанс</h2>
+        <div id="calendar"></div>
+    </section>
+
+    <script>
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+                events: [
+                    {
+                        title: 'Сеанс 1',
+                        start: '2025-04-30T10:00:00',
+                        end: '2025-04-30T11:00:00',
+                        description: 'Доступно для записи'
+                    },
+                    {
+                        title: 'Сеанс 2',
+                        start: '2025-04-30T14:00:00',
+                        end: '2025-04-30T15:00:00',
+                        description: 'Доступно для записи'
+                    }
+                ],
+                eventClick: function(event) {
+                    alert('Вы выбрали сеанс: ' + event.title + ' в ' + event.start.format('HH:mm'));
+                    event.description = 'Занято';
+                    $(this).css('background-color', '#FF0000'); // Показывает, что время занято
+                }
+            });
+        });
+    </script>
 </body>
 </html>
