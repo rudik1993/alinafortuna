@@ -1,86 +1,82 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
+/* Анимация восхода солнца */
+@keyframes sunrise {
+    0% {
+        background: linear-gradient(to bottom, #1e3c72, #2a5298); /* Ночное небо */
+    }
+    100% {
+        background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Яркий восход */
+    }
 }
 
-.animation {
-    position: absolute;
+body {
+    animation: sunrise 10s infinite alternate; /* Анимация фонового градиента */
+    transition: background 0.5s ease;
+    font-family: 'Roboto', sans-serif; /* Стиль шрифта */
+    background: #f8f4e3; /* Светлый фон */
+    color: #2c3e50; /* Тёмный текст */
+    margin: 0;
+    padding: 0;
+}
+
+/* Заголовок */
+.header {
+    background: #ff6347; /* Яркий розовый цвет */
+    color: white;
+    text-align: center;
+    padding: 30px;
+    font-size: 2.5em;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Контейнер с контентом */
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный фон */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+/* Стили для заголовков */
+h1, h2, h3 {
+    font-family: 'Georgia', serif; /* Элегантный шрифт для заголовков */
+    color: #34495e;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Тень для заголовков */
+}
+
+/* Стили для ссылок */
+a {
+    color: #ff6347; /* Яркая красная ссылка */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Подчёркивание при наведении */
+}
+
+/* Добавление плавного появления для фона */
+.sunrise-background {
+    background-image: url('your-image-url.jpg'); /* Вставь URL своего изображения */
+    background-size: cover;
+    background-position: center;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    background-color: #87CEFA;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.sun {
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
-    border-radius: 50%;
-    animation: rise 3s ease-in-out forwards;
-}
-
-.sky {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
     height: 100%;
-    background: linear-gradient(to top, #FF6347, #87CEFA);
-    opacity: 0;
-    animation: skyAnimation 3s ease-in-out forwards;
+    animation: fadeIn 3s ease-out;
+    z-index: -1;
 }
 
-@keyframes rise {
-    0% {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(-100px);
-        opacity: 1;
-    }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-@keyframes skyAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.content {
-    padding: 20px;
-    background-color: #ffffff;
-}
-
-header h1 {
-    color: #4CAF50;
+/* Стили для картинок (если будут добавляться) */
+.image-container {
     text-align: center;
+    margin: 20px 0;
 }
 
-section h2 {
-    color: #333;
-}
-
-ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-ul li {
-    margin: 10px 0;
-}
-
-a {
-    color: #4CAF50;
-    text-decoration: none;
-}
+.styled
