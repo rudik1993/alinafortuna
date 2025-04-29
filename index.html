@@ -8,19 +8,17 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.0.0/dist/fullcalendar.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@3.0.0/dist/fullcalendar.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <div class="hero">
-            <h1>Добро пожаловать на Alina Fortuna</h1>
-            <p>Нумерология, консультации и гармония в жизни</p>
-        </div>
+    <header data-aos="fade-down">
+        <h1>Добро пожаловать на Alina Fortuna</h1>
+        <p>Нумерология, консультации и гармония в жизни</p>
     </header>
 
-    <section class="buttons">
+    <section class="buttons" data-aos="fade-in">
         <button onclick="location.href='#reviews'">Далее</button>
         <button onclick="location.href='#socials'">Отзывы</button>
     </section>
@@ -57,7 +55,7 @@
                 eventClick: function(event) {
                     alert('Вы выбрали сеанс: ' + event.title + ' в ' + event.start.format('HH:mm'));
                     event.description = 'Занято';
-                    $(this).css('background-color', '#FF0000');
+                    $(this).css('background-color', '#FF0000'); // Показывает, что время занято
                 }
             });
         });
