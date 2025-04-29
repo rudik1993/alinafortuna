@@ -11,71 +11,87 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #A6C8FF, #C1D2D5); /* Голубовато-серый градиент */
-            background-image: url('path_to_gold_texture.png'); /* Заменить на путь к золотому текстурированному изображению */
-            background-blend-mode: overlay; /* Применение золотого оттенка поверх фона */
-            margin: 0;
-            padding: 0;
-            color: #333;
+        body { 
+            font-family: Arial, sans-serif; 
+            background: linear-gradient(135deg, #b0c8d6, #f2e6a0); 
+            margin: 0; padding: 0; 
+            color: #333; 
+            animation: fadeInBackground 2s ease-out;
         }
-        header {
-            background-color: rgba(255, 127, 80, 0.8); /* Полупрозрачный коралловый цвет */
-            color: white;
-            text-align: center;
+
+        @keyframes fadeInBackground {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        header { 
+            background-color: #4a90e2; 
+            color: white; 
+            text-align: center; 
             padding: 30px 0;
+            animation: slideInHeader 1s ease-out;
         }
-        h2 {
-            color: #ff7f50;
+
+        @keyframes slideInHeader {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(0); }
         }
-        .buttons button {
-            background-color: #ff7f50;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            margin: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+
+        h2 { color: #ff7f50; }
+
+        .buttons button { 
+            background-color: #ff7f50; 
+            color: white; 
+            padding: 15px 30px; 
+            border: none; 
+            margin: 10px; 
+            font-size: 16px; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            transition: background-color 0.3s; 
         }
-        .buttons button:hover {
-            background-color: #ff6347;
+
+        .buttons button:hover { 
+            background-color: #ff6347; 
         }
-        #reviews, #socials, #calendar {
-            margin: 40px auto;
-            width: 80%;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        #reviews, #socials, #calendar { 
+            margin: 40px auto; 
+            width: 80%; 
+            padding: 20px; 
+            background-color: #fff; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         }
-        .review {
-            background-color: #f0f0f0;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
+
+        .review { 
+            background-color: #f0f0f0; 
+            padding: 15px; 
+            margin: 10px 0; 
+            border-radius: 5px; 
         }
-        .review p {
-            margin: 0;
+
+        .review p { margin: 0; }
+
+        #socials a { 
+            margin: 10px 20px; 
+            text-decoration: none; 
+            color: #ff7f50; 
+            font-size: 18px; 
+            transition: color 0.3s; 
         }
-        #socials a {
-            margin: 10px 20px;
-            text-decoration: none;
-            color: #ff7f50;
-            font-size: 18px;
-            transition: color 0.3s;
+
+        #socials a:hover { 
+            color: #ff6347; 
         }
-        #socials a:hover {
-            color: #ff6347;
+
+        #calendar { 
+            background-color: #ffffff; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         }
-        #calendar {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+
     </style>
 </head>
 <body>
