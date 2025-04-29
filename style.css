@@ -1,110 +1,125 @@
-/* Общие стили */
 body {
-    font-family: 'Arial', sans-serif;
-    background: #f8f8f8;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    overflow-x: hidden;
 }
 
 header {
-    background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Эффект восхода солнца */
+    background: linear-gradient(45deg, #cce7ff, #a8d5e2);
     color: white;
+    padding: 100px 0;
     text-align: center;
-    padding: 40px 20px;
-    font-size: 2.5em;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+    animation: fadeInHeader 2s ease-out;
 }
 
-header h1 {
-    margin: 0;
+@keyframes fadeInHeader {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+header .header-content h1 {
     font-size: 3em;
-    font-weight: bold;
-}
-
-header p {
-    font-size: 1.2em;
-}
-
-/* Основной контент */
-.main-content {
-    background-color: #fff;
-    padding: 60px 20px;
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
-    margin-top: 20px;
-}
-
-.intro h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.intro p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Блок "О нас" */
-.about {
-    background-color: #f1f1f1;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.about h2 {
-    font-size: 2.2em;
-    margin-bottom: 20px;
-}
-
-.about p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* Футер */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
-}
-
-footer p {
-    font-size: 1em;
     margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-/* Анимация восхода солнца для фона */
+header .header-content p {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+header .btn-book {
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header .btn-book:hover {
+    background-color: #ff6347;
+}
+
+#reviews {
+    margin: 50px 0;
+    padding: 20px;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review {
+    background-color: #f0f0f0;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.review:hover {
+    transform: scale(1.05);
+}
+
+#socials {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    margin: 50px 0;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    font-size: 2.5em;
+    margin: 0 15px;
+    color: #ff7f50;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    color: #ff6347;
+}
+
+#calendar {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin: 50px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sunrise-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('sunrise.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    animation: sunrise 5s ease-out;
+    z-index: 1;
+}
+
 @keyframes sunrise {
     0% {
-        background: linear-gradient(to bottom, #1e3c72, #2a5298); /* Ночное небо */
+        opacity: 0;
+        transform: translateY(100%);
     }
     100% {
-        background: linear-gradient(to bottom, #ff7e5f, #feb47b); /* Яркий восход */
-    }
-}
-
-body {
-    animation: sunrise 15s infinite alternate;
-    transition: background 0.5s ease;
-}
-
-/* Анимация появления текста */
-.intro h2, .about h2 {
-    opacity: 0;
-    animation: fadeIn 2s forwards;
-}
-
-@keyframes fadeIn {
-    to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
-
