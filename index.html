@@ -8,45 +8,61 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.0.0/dist/fullcalendar.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@3.0.0/dist/fullcalendar.min.css" />
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="script.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 </head>
 <body>
 
-    <!-- Анимация восхода солнца -->
-    <div id="sunrise" class="sunrise-animation"></div>
-
     <header>
-        <div class="header-content">
-            <h1 data-aos="fade-up" class="main-title">Добро пожаловать на Alina Fortuna</h1>
-            <p data-aos="fade-up" class="main-description">Нумерология и консультации для гармонии в жизни</p>
-            <button class="btn-book" onclick="window.location.href='#calendar'" data-aos="fade-up">Записаться на консультацию</button>
+        <div class="hero">
+            <h1>Добро пожаловать на Alina Fortuna</h1>
+            <p>Нумерология, консультации и гармония в жизни</p>
         </div>
     </header>
 
-    <section id="reviews" data-aos="fade-left">
+    <section class="buttons">
+        <button onclick="location.href='#reviews'">Далее</button>
+        <button onclick="location.href='#socials'">Отзывы</button>
+    </section>
+
+    <section id="reviews" data-aos="fade-up">
         <h2>Отзывы</h2>
         <div class="review">
-            <p>"Консультация была просто потрясающей! Спасибо за помощь." - Иван</p>
+            <p>"Отличная консультация! Помогла разобраться в жизни!" - Иван</p>
         </div>
         <div class="review">
-            <p>"Очень полезно, узнала много нового и интересного!" - Ольга</p>
+            <p>"Очень помогла нумерология! Спасибо, Алина!" - Ольга</p>
         </div>
     </section>
 
-    <section id="socials" data-aos="fade-right">
+    <section id="socials" data-aos="fade-left">
         <h2>Наши соцсети</h2>
-        <div class="social-links">
-            <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="https://t.me/yourprofile" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://www.facebook.com/yourprofile" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
-        </div>
+        <a href="https://www.instagram.com/yourprofile" target="_blank">Instagram</a>
+        <a href="https://t.me/yourprofile" target="_blank">Telegram</a>
+        <a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a>
     </section>
 
-    <section id="calendar">
+    <section id="calendar" data-aos="zoom-in">
         <h2>Записаться на сеанс</h2>
         <div id="calendar"></div>
     </section>
 
+    <script>
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+                events: [
+                    { title: 'Сеанс 1', start: '2025-04-30T10:00:00', end: '2025-04-30T11:00:00', description: 'Доступно для записи' },
+                    { title: 'Сеанс 2', start: '2025-04-30T14:00:00', end: '2025-04-30T15:00:00', description: 'Доступно для записи' }
+                ],
+                eventClick: function(event) {
+                    alert('Вы выбрали сеанс: ' + event.title + ' в ' + event.start.format('HH:mm'));
+                    event.description = 'Занято';
+                    $(this).css('background-color', '#FF0000');
+                }
+            });
+        });
+
+        AOS.init({ duration: 1000, once: true });
+    </script>
 </body>
 </html>
