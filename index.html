@@ -168,8 +168,18 @@
     </div>
   </div>
 </div>
-  </div>
+</div>
 </section>
+
+<script>
+  const slider = document.getElementById("testimonialSlider");
+  let index = 0;
+  const totalSlides = 3;
+  setInterval(() => {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    index = (index + 1) % totalSlides;
+  }, 5000);
+</script>
 
 <script>
   const slider = document.getElementById("testimonialSlider");
@@ -181,6 +191,28 @@ setInterval(() => {(() => {
   }, 5000);
 </script>
 
+<!-- Сеансы и цены -->
+<section class="py-16 px-6 text-center bg-white">
+  <h3 class="text-3xl font-semibold text-purple-600 mb-6">Мои консультации</h3>
+  <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+    <div class="bg-white p-6 rounded-xl shadow-md">
+      <h4 class="text-xl font-bold mb-2">Нумерологический разбор</h4>
+      <p class="mb-4 text-gray-600">Глубокое понимание себя и своей энергии.</p>
+      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0ExviN2HW0STwY2QBpMwa2qkK4YMl9rHe_9Bx1jRHMMrEhRB5PQyQ9lomqmyRKuSw2Ke6Wdvvf?gv=true" target="_blank" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Записаться — 30€</a>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow-md">
+      <h4 class="text-xl font-bold mb-2">Консультация 1:1</h4>
+      <p class="mb-4 text-gray-600">Личное сопровождение в вашем пути.</p>
+      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0ExviN2HW0STwY2QBpMwa2qkK4YMl9rHe_9Bx1jRHMMrEhRB5PQyQ9lomqmyRKuSw2Ke6Wdvvf?gv=true" target="_blank" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Записаться — 45€</a>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow-md">
+      <h4 class="text-xl font-bold mb-2">Марафон "Женская сила"</h4>
+      <p class="mb-4 text-gray-600">Погружение в себя и свои ресурсы.</p>
+      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0ExviN2HW0STwY2QBpMwa2qkK4YMl9rHe_9Bx1jRHMMrEhRB5PQyQ9lomqmyRKuSw2Ke6Wdvvf?gv=true" target="_blank" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Участвовать — 25€</a>
+    </div>
+  </div>
+</section>
+
 <!-- Календарь записи -->
 <section class="py-16 px-6 text-center bg-white">
   <h3 class="text-3xl font-semibold text-purple-600 mb-6">Записаться на консультацию</h3>
@@ -191,7 +223,7 @@ setInterval(() => {(() => {
 </section>
 
 <!-- Модальное окно календаря -->
-<div id="calendarModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+<div id="calendarModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden" onclick="closeCalendarModal(event)">
   <div class="bg-white p-6 rounded-xl shadow-xl max-w-4xl w-full relative">
     <button onclick="document.getElementById('calendarModal').classList.add('hidden')"
       class="absolute top-4 right-4 text-gray-600 hover:text-black text-2xl">&times;</button>
@@ -202,7 +234,14 @@ setInterval(() => {(() => {
 </div>
 
 <script>
-  const steps = document.querySelectorAll(".step");
+function closeCalendarModal(e) {
+  if (e.target.id === 'calendarModal' || e.key === 'Escape') {
+    document.getElementById('calendarModal').classList.add('hidden');
+  }
+}
+document.addEventListener('keydown', closeCalendarModal);
+
+const steps = document.querySelectorAll(".step");
   const nextBtn = document.getElementById("nextBtn");
   const submitBtn = document.getElementById("submitBtn");
   let currentStep = 0;
@@ -239,6 +278,15 @@ setInterval(() => {(() => {
 <!-- Политика конфиденциальности -->
 <footer class="bg-gray-100 text-center py-6 text-sm text-gray-600">
   <a href="#" class="underline hover:text-pink-600">Политика конфиденциальности</a> © 2025 Alina Fortuna
+<section class="py-10 px-6 text-center">
+  <h4 class="text-2xl mb-4 font-medium text-purple-700">Мы в соцсетях</h4>
+  <div class="flex justify-center gap-8 text-3xl">
+    <a href="https://www.instagram.com/alina_fortunalove/" target="_blank" class="text-pink-600 hover:scale-110 transition"><i class="fab fa-instagram"></i></a>
+    <a href="https://t.me/alinafortunalove" target="_blank" class="text-blue-400 hover:scale-110 transition"><i class="fab fa-telegram"></i></a>
+    <a href="https://www.facebook.com/alina.katysheva/" target="_blank" class="text-blue-700 hover:scale-110 transition"><i class="fab fa-facebook"></i></a>
+  </div>
+</section>
+
 </footer>
 </body>
 </html>
