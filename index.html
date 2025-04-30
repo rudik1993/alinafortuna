@@ -85,40 +85,41 @@
       </form>
     </section>
 
-    <!-- Calendar Booking -->
-    <section class="py-16 px-6 text-center bg-white">
-      <h3 class="text-3xl font-semibold text-purple-600 mb-6">Записаться на консультацию</h3>
-      <!-- Google Calendar Appointment Scheduling begin -->
-      <iframe
-        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0ExviN2HW0STwY2QBpMwa2qkK4YMl9rHe_9Bx1jRHMMrEhRB5PQyQ9lomqmyRKuSw2Ke6Wdvvf?gv=true"
-        style="border: 0" width="100%" height="400" frameborder="0"></iframe>
-      <!-- end Google Calendar Appointment Scheduling -->
-      <p class="text-sm text-gray-500 mt-4">Выберите дату и оставьте заявку — мы подтвердим время встречи!</p>
+<!-- Calendar Booking -->
+<section class="py-16 px-6 text-center bg-white">
+  <h3 class="text-3xl font-semibold text-purple-600 mb-6">Записаться на консультацию</h3>
+  <!-- Google Calendar Appointment Scheduling begin -->
+  <div class="max-w-3xl mx-auto">
+    <iframe
+      src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0ExviN2HW0STwY2QBpMwa2qkK4YMl9rHe_9Bx1jRHMMrEhRB5PQyQ9lomqmyRKuSw2Ke6Wdvvf?gv=true"
+      style="border: 0" width="100%" height="400" frameborder="0" class="rounded-lg shadow-md"></iframe>
+  </div>
+  <!-- end Google Calendar Appointment Scheduling -->
+  <p class="text-sm text-gray-500 mt-4">Выберите дату и оставьте заявку — мы подтвердим время встречи!</p>
 
-      <!-- Confirmation popup -->
-      <div id="confirmationMessage" class="hidden mt-6 text-green-600 font-semibold transition-opacity duration-500">
-        Спасибо! Ваша заявка получена 🌸
-      </div>
+  <!-- Confirmation popup -->
+  <div id="confirmationMessage" class="hidden mt-6 text-green-600 font-semibold transition-opacity duration-500">
+    Спасибо! Ваша заявка получена 🌸
+  </div>
 
-      <script>
-        // Простая имитация подтверждения
-        document.addEventListener("DOMContentLoaded", () => {
-          const iframe = document.querySelector("iframe[src*='calendar.google.com']");
-          const confirmation = document.getElementById("confirmationMessage");
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const iframe = document.querySelector("iframe[src*='calendar.google.com']");
+      const confirmation = document.getElementById("confirmationMessage");
 
-          iframe.addEventListener("load", () => {
-            confirmation.classList.remove("hidden");
-            confirmation.classList.add("opacity-100");
+      iframe.addEventListener("load", () => {
+        confirmation.classList.remove("hidden");
+        confirmation.classList.add("opacity-100");
 
-            setTimeout(() => {
-              confirmation.classList.remove("opacity-100");
-              confirmation.classList.add("opacity-0");
-              setTimeout(() => confirmation.classList.add("hidden"), 1000);
-            }, 5000);
-          });
-        });
-      </script>
-    </section>
+        setTimeout(() => {
+          confirmation.classList.remove("opacity-100");
+          confirmation.classList.add("opacity-0");
+          setTimeout(() => confirmation.classList.add("hidden"), 1000);
+        }, 5000);
+      });
+    });
+  </script>
+</section>
 
     <!-- Socials -->
     <section class="py-10 px-6 text-center">
