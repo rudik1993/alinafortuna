@@ -5,58 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alina Fortuna</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Playfair Display', serif;
+      background: url('https://images.wallpaperscraft.ru/image/single/okean_priboj_pena_117846_3840x2160.jpg') no-repeat center center fixed;
+      background-size: cover;
     }
-    .bg-gradient-animate {
-      background: linear-gradient(-45deg, #fceabb, #ffdee9, #d9afd9, #a1c4fd);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-    }
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    .bg-fade {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
     }
     .sun-button {
-      animation: rise 3s ease forwards;
+      animation: rise 2s ease forwards;
       opacity: 0;
     }
     @keyframes rise {
-      0% { transform: translateY(100px); opacity: 0; }
+      0% { transform: translateY(50px); opacity: 0; }
       100% { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
-<body class="bg-gradient-animate min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col">
   <!-- Welcome Section -->
   <div class="relative h-screen flex flex-col justify-center items-center text-white text-center">
-    <img src="https://russian.korea.net/upload/content/editImage/20231227102305888_96RS10X2.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Закат">
-    <button onclick="document.getElementById('main').scrollIntoView({ behavior: 'smooth' });" class="sun-button z-10 bg-yellow-300 hover:bg-yellow-400 text-white font-bold py-4 px-6 rounded-full shadow-xl transition transform hover:scale-110">
-      Войти через солнце ☀️
+    <img src="https://images.wallpaperscraft.ru/image/single/gora_fudzi_iaponiia_solntse_115274_3840x2160.jpg" class="absolute inset-0 w-full h-full object-cover opacity-70" alt="Закат на Фудзи">
+    <button onclick="document.getElementById('main').scrollIntoView({ behavior: 'smooth' });" class="sun-button z-10 bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-4 px-8 rounded-full shadow-xl transition transform hover:scale-110">
+      Войти
     </button>
   </div>
 
   <!-- Main Content -->
-  <div id="main" class="relative z-10">
+  <div id="main" class="relative z-10 bg-fade">
     <!-- About -->
     <section class="py-16 px-6 text-center">
       <h2 class="text-4xl font-bold mb-4 text-pink-700">Alina Fortuna</h2>
-      <p class="max-w-2xl mx-auto text-lg text-gray-700 animate-fade-in">Ваш путь к себе через нумерологию и духовную губину.</p>
+      <p class="max-w-2xl mx-auto text-lg text-gray-800">
+        Ваш путь к себе через нумерологию, подсознание и мягкую трансформацию. Я помогаю людям услышать себя и выйти на новый уровень жизни.
+      </p>
     </section>
 
     <!-- Services -->
-    <section class="bg-white py-16 px-6 text-center">
+    <section class="py-16 px-6 text-center">
       <h3 class="text-3xl font-semibold text-purple-600 mb-6">Услуги</h3>
-      <p class="text-gray-600">Скоро здесь появятся ваши особые предложения!</p>
+      <p class="text-gray-700">Скоро появятся ваши особые предложения!</p>
     </section>
 
     <!-- Funnel (Lead Capture) -->
-    <section class="py-16 px-6 text-center bg-pink-50">
-      <h3 class="text-3xl font-semibold text-pink-500 mb-4">Воронка вовлечения</h3>
-      <p class="text-gray-700 mb-6">Получите подарок или полезную информацию на e-mail!</p>
+    <section class="py-16 px-6 text-center bg-pink-50 bg-opacity-80">
+      <h3 class="text-3xl font-semibold text-pink-500 mb-4">Получите подарок</h3>
+      <p class="text-gray-700 mb-6">Введите email, и вы получите ценный мини-анализ и подарок!</p>
       <form class="max-w-md mx-auto">
         <input type="email" placeholder="Ваш e-mail" class="px-4 py-2 w-full rounded-md border border-pink-300 mb-4">
         <button class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-md shadow-lg transition transform hover:scale-105">
@@ -68,20 +67,20 @@
     <!-- Socials -->
     <section class="py-10 px-6 text-center">
       <h4 class="text-2xl mb-4 font-medium text-purple-700">Мы в соцсетях</h4>
-      <div class="flex justify-center gap-6">
-        <a href="https://www.instagram.com/alina_fortunalove/" target="_blank" class="text-pink-600 text-3xl">📷</a>
-        <a href="https://www.facebook.com/alina.katysheva/" target="_blank" class="text-blue-600 text-3xl">💾</a>
-        <a href="https://t.me/alinafortunalove" target="_blank" class="text-blue-400 text-3xl">🔊</a>
+      <div class="flex justify-center gap-8 text-3xl">
+        <a href="https://www.instagram.com/alina_fortunalove/" target="_blank" class="text-pink-600 hover:scale-110 transition"><i class="fab fa-instagram"></i></a>
+        <a href="https://t.me/alinafortunalove" target="_blank" class="text-blue-400 hover:scale-110 transition"><i class="fab fa-telegram"></i></a>
+        <a href="https://www.facebook.com/alina.katysheva/" target="_blank" class="text-blue-700 hover:scale-110 transition"><i class="fab fa-facebook"></i></a>
       </div>
     </section>
 
     <!-- Image Banner -->
-    <section class="relative py-10">
+    <section class="relative py-10 text-center">
       <img src="/mnt/data/49206554_1649127121854734_785332519510736896_n.jpg" alt="Alina Wedding" class="max-h-96 mx-auto rounded-lg shadow-xl">
     </section>
 
     <!-- Footer -->
-    <footer class="text-center py-6 text-sm text-gray-500">
+    <footer class="text-center py-6 text-sm text-gray-600 bg-fade">
       &copy; 2025 Alina Fortuna. Все права защищены.
     </footer>
   </div>
