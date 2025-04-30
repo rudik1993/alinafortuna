@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alina Fortuna</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
   <style>
     body {
       font-family: 'Playfair Display', serif;
@@ -20,117 +27,106 @@
       opacity: 0;
     }
     @keyframes rise {
-      0% {
-        transform: translateY(50px);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      0% { transform: translateY(50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
     }
+    .step { display: none; }
+    .step.active { display: block; }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
-  <!-- Welcome Section -->
+  <!-- Welcome -->
   <div class="relative h-screen flex flex-col justify-center items-center text-white text-center">
-    <img
-      src="https://images.wallpaperscraft.ru/image/single/gora_fudzi_iaponiia_solntse_115274_3840x2160.jpg"
-      class="absolute inset-0 w-full h-full object-cover opacity-70"
-      alt="Закат на Фудзи"
-    />
-    <button onclick="document.getElementById('main').scrollIntoView({ behavior: 'smooth' });"
-      class="sun-button z-10 bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-4 px-8 rounded-full shadow-xl transition transform hover:scale-110">
+    <img src="https://images.wallpaperscraft.ru/image/single/gora_fudzi_iaponiia_solntse_115274_3840x2160.jpg" class="absolute inset-0 w-full h-full object-cover opacity-70" alt="Закат на Фудзи" />
+    <button onclick="document.getElementById('main').scrollIntoView({ behavior: 'smooth' });" class="sun-button z-10 bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-4 px-8 rounded-full shadow-xl transition transform hover:scale-110">
       Войти
     </button>
   </div>
 
   <!-- Main Content -->
   <div id="main" class="relative z-10 bg-fade">
-    <!-- About -->
+    <!-- Офферы -->
     <section class="py-16 px-6 text-center">
-      <h2 class="text-4xl font-bold mb-4 text-pink-700">Alina Fortuna</h2>
-      <p class="max-w-2xl mx-auto text-lg text-gray-800">
-        Ваш путь к себе через нумерологию, подсознание и мягкую трансформацию. Я помогаю людям услышать себя и выйти на новый уровень жизни.
-      </p>
+      <h2 class="text-4xl font-bold mb-4 text-pink-700">Раскрой свою силу</h2>
+      <p class="text-gray-700 max-w-2xl mx-auto">Уже более <strong>300 женщин</strong> изменили свою жизнь через нумерологию и душевную работу с Алиной.</p>
     </section>
 
-    <!-- Services -->
-    <section class="py-16 px-6 text-center">
-      <h3 class="text-3xl font-semibold text-purple-600 mb-6">Услуги</h3>
-      <p class="text-gray-700">Скоро появятся ваши особые предложения!</p>
-    </section>
-
-    <!-- Benefits List -->
-    <section class="py-12 px-6 text-center bg-white">
-      <h3 class="text-2xl font-semibold text-pink-600 mb-4">Что вы получите</h3>
-      <ul class="text-left max-w-xl mx-auto mb-8 space-y-3 text-gray-700">
-        <li>✔ Персональный мини-анализ по дате рождения</li>
-        <li>✔ Понимание своей точки роста и энергии</li>
-        <li>✔ Доступ к закрытым материалам и подаркам</li>
-      </ul>
-    </section>
-
-    <!-- Funnel (Lead Capture) -->
-    <section class="py-16 px-6 text-center bg-pink-50 bg-opacity-80">
-      <h3 class="text-3xl font-semibold text-pink-500 mb-4">Получите подарок</h3>
-      <p class="text-gray-700 mb-6">Введите email, и вы получите ценный мини-анализ и подарок!</p>
-      <form class="max-w-md mx-auto">
-        <input type="email" placeholder="Ваш e-mail"
-          class="px-4 py-2 w-full rounded-md border border-pink-300 mb-4" />
-        <button
-          class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-md shadow-lg transition transform hover:scale-105">
-          Получить доступ
-        </button>
+    <!-- Квиз -->
+    <section class="py-16 px-6 text-center bg-white">
+      <h3 class="text-3xl font-semibold text-purple-600 mb-4">Мини-квиз: почувствуй свой путь</h3>
+      <form id="quizForm" class="max-w-xl mx-auto space-y-6">
+        <div class="step active">
+          <p class="mb-2">1. Что вас волнует сейчас больше всего?</p>
+          <select class="w-full px-4 py-2 border rounded-md" required>
+            <option>Выбор в жизни</option>
+            <option>Отношения</option>
+            <option>Страх и тревожность</option>
+            <option>Деньги</option>
+          </select>
+        </div>
+        <div class="step">
+          <p class="mb-2">2. Как вы оцениваете своё эмоциональное состояние?</p>
+          <select class="w-full px-4 py-2 border rounded-md">
+            <option>Спокойное</option>
+            <option>Смешанное</option>
+            <option>Раздражённое</option>
+            <option>Уставшее</option>
+          </select>
+        </div>
+        <div class="step">
+          <p class="mb-2">3. Хотите узнать свою нумерологическую миссию?</p>
+          <select class="w-full px-4 py-2 border rounded-md">
+            <option>Да</option>
+            <option>Не знаю</option>
+            <option>Нет</option>
+          </select>
+        </div>
+        <div class="step">
+          <p class="mb-2">4. Ваш e-mail и имя, чтобы получить анализ и подарок:</p>
+          <input type="text" class="w-full px-4 py-2 border rounded-md mb-2" placeholder="Имя" required />
+          <input type="email" class="w-full px-4 py-2 border rounded-md" placeholder="Email" required />
+        </div>
+        <button type="button" id="nextBtn" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-md shadow transition">Далее</button>
+        <button type="submit" id="submitBtn" class="hidden bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-md shadow transition">Отправить</button>
       </form>
     </section>
 
-<!-- Calendar Booking -->
-<section class="py-16 px-6 text-center bg-white">
-  <h3 class="text-3xl font-semibold text-purple-600 mb-6">Записаться на консультацию</h3>
-  <!-- Google Calendar Appointment Scheduling begin -->
-  <div class="max-w-3xl mx-auto">
-    <iframe
-      src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0ExviN2HW0STwY2QBpMwa2qkK4YMl9rHe_9Bx1jRHMMrEhRB5PQyQ9lomqmyRKuSw2Ke6Wdvvf?gv=true"
-      style="border: 0" width="100%" height="400" frameborder="0" class="rounded-lg shadow-md"></iframe>
-  </div>
-  <!-- end Google Calendar Appointment Scheduling -->
-  <p class="text-sm text-gray-500 mt-4">Выберите дату и оставьте заявку — мы подтвердим время встречи!</p>
+    <!-- Лид-магнит -->
+    <section class="py-12 px-6 text-center bg-pink-50">
+      <h3 class="text-2xl font-semibold text-pink-600 mb-2">Скачай подарок</h3>
+      <p class="text-gray-700 mb-4">PDF-инструкция по разбору вашей даты рождения</p>
+      <a href="/alina_gift.pdf" download class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded shadow">Скачать PDF</a>
+    </section>
 
-  <!-- Confirmation popup -->
-  <div id="confirmationMessage" class="hidden mt-6 text-green-600 font-semibold transition-opacity duration-500">
-    Спасибо! Ваша заявка получена 🌸
-  </div>
+    <!-- Сеансы -->
+    <section class="py-16 px-6 text-center">
+      <h3 class="text-3xl font-semibold text-purple-600 mb-6">Мои сеансы</h3>
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h4 class="text-xl font-bold mb-2">Нумерологический разбор</h4>
+          <p class="mb-4 text-gray-600">Глубокое понимание себя и своей энергии.</p>
+          <a href="#" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Записаться — 30€</a>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h4 class="text-xl font-bold mb-2">Консультация 1:1</h4>
+          <p class="mb-4 text-gray-600">Личное сопровождение в вашем пути.</p>
+          <a href="#" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Записаться — 45€</a>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h4 class="text-xl font-bold mb-2">Марафон "Женская сила"</h4>
+          <p class="mb-4 text-gray-600">Погружение в себя и свои ресурсы.</p>
+          <a href="#" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Участвовать — 25€</a>
+        </div>
+      </div>
+    </section>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const iframe = document.querySelector("iframe[src*='calendar.google.com']");
-      const confirmation = document.getElementById("confirmationMessage");
-
-      iframe.addEventListener("load", () => {
-        confirmation.classList.remove("hidden");
-        confirmation.classList.add("opacity-100");
-
-        setTimeout(() => {
-          confirmation.classList.remove("opacity-100");
-          confirmation.classList.add("opacity-0");
-          setTimeout(() => confirmation.classList.add("hidden"), 1000);
-        }, 5000);
-      });
-    });
-  </script>
-</section>
-
-    <!-- Socials -->
+    <!-- Соцсети -->
     <section class="py-10 px-6 text-center">
       <h4 class="text-2xl mb-4 font-medium text-purple-700">Мы в соцсетях</h4>
       <div class="flex justify-center gap-8 text-3xl">
-        <a href="https://www.instagram.com/alina_fortunalove/" target="_blank"
-          class="text-pink-600 hover:scale-110 transition"><i class="fab fa-instagram"></i></a>
-        <a href="https://t.me/alinafortunalove" target="_blank"
-          class="text-blue-400 hover:scale-110 transition"><i class="fab fa-telegram"></i></a>
-        <a href="https://www.facebook.com/alina.katysheva/" target="_blank"
-          class="text-blue-700 hover:scale-110 transition"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/alina_fortunalove/" target="_blank" class="text-pink-600 hover:scale-110 transition"><i class="fab fa-instagram"></i></a>
+        <a href="https://t.me/alinafortunalove" target="_blank" class="text-blue-400 hover:scale-110 transition"><i class="fab fa-telegram"></i></a>
+        <a href="https://www.facebook.com/alina.katysheva/" target="_blank" class="text-blue-700 hover:scale-110 transition"><i class="fab fa-facebook"></i></a>
       </div>
     </section>
 
@@ -139,5 +135,24 @@
       &copy; 2025 Alina Fortuna. Все права защищены.
     </footer>
   </div>
+
+  <script>
+    const steps = document.querySelectorAll(".step");
+    const nextBtn = document.getElementById("nextBtn");
+    const submitBtn = document.getElementById("submitBtn");
+    let currentStep = 0;
+
+    nextBtn.addEventListener("click", () => {
+      if (currentStep < steps.length - 1) {
+        steps[currentStep].classList.remove("active");
+        currentStep++;
+        steps[currentStep].classList.add("active");
+        if (currentStep === steps.length - 1) {
+          nextBtn.classList.add("hidden");
+          submitBtn.classList.remove("hidden");
+        }
+      }
+    });
+  </script>
 </body>
 </html>
