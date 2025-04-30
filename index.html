@@ -68,11 +68,14 @@ input[type='radio']:checked + .custom-radio {
 </head>
 <body class="min-h-screen flex flex-col scroll-smooth">
   <!-- Welcome -->
-  <div class="relative h-screen flex flex-col justify-center items-center text-white text-center">
+  $1
+    <div class="absolute bottom-10 w-full flex justify-center">
+      <button onclick="document.getElementById('main').scrollIntoView({ behavior: 'smooth' });" class="text-white text-3xl opacity-70 hover:opacity-100 transition">
+        <i class="fas fa-angle-down"></i>
+      </button>
+    </div>
     <img src="https://images.wallpaperscraft.ru/image/single/siurrealizm_lodka_oblaka_130292_1920x1080.jpg" class="absolute inset-0 w-full h-full object-cover opacity-70" alt="Сюрреализм: лодка и облака" />
-    <button onclick="document.getElementById('main').scrollIntoView({ behavior: 'smooth' });" class="sun-button z-10 bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-4 px-8 rounded-full shadow-xl transition transform hover:scale-110">
-      Войти
-    </button>
+    
   </div>
 
   <!-- Main Content -->
