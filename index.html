@@ -41,7 +41,30 @@
     }
     .step { display: none; }
     .step.active { display: block; }
-  </style>
+  input[type='radio']:checked + span {
+  background-color: #3b82f6; /* Tailwind blue-500 */
+  color: white;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+.custom-radio {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+input[type='radio']:checked + .custom-radio {
+  border-color: #3b82f6;
+  background-color: #3b82f6;
+  color: white;
+}
+</style>
 </head>
 <body class="min-h-screen flex flex-col scroll-smooth">
   <!-- Welcome -->
@@ -93,27 +116,27 @@
         <div class="step active">
           <p class="mb-2">1. Что вас волнует сейчас больше всего?</p>
           <div class="space-y-2">
-            <label><input type="radio" name="question1" value="Выбор в жизни" required> Выбор в жизни</label><br>
-            <label><input type="radio" name="question1" value="Отношения"> Отношения</label><br>
-            <label><input type="radio" name="question1" value="Страх и тревожность"> Страх и тревожность</label><br>
-            <label><input type="radio" name="question1" value="Деньги"> Деньги</label>
+            <label><input type="radio" name="question1" value="Выбор в жизни" required><span class="custom-radio">Выбор в жизни</span></label><br>
+            <label><input type="radio" name="question1" value="Отношения"><span class="custom-radio">Отношения</span></label><br>
+            <label><input type="radio" name="question1" value="Страх и тревожность"><span class="custom-radio">Страх и тревожность</span></label><br>
+            <label><input type="radio" name="question1" value="Деньги"><span class="custom-radio">Деньги</span></label>
           </div>
         </div>
         <div class="step">
           <p class="mb-2">2. Как вы оцениваете своё эмоциональное состояние?</p>
           <div class="space-y-2">
-            <label><input type="radio" name="question2" value="Спокойное" required> Спокойное</label><br>
-            <label><input type="radio" name="question2" value="Смешанное"> Смешанное</label><br>
-            <label><input type="radio" name="question2" value="Раздражённое"> Раздражённое</label><br>
-            <label><input type="radio" name="question2" value="Уставшее"> Уставшее</label>
+            <label><input type="radio" name="question2" value="Спокойное" required><span class="custom-radio">Спокойное</span></label><br>
+            <label><input type="radio" name="question2" value="Смешанное"><span class="custom-radio">Смешанное</span></label><br>
+            <label><input type="radio" name="question2" value="Раздражённое"><span class="custom-radio">Раздражённое</span></label><br>
+            <label><input type="radio" name="question2" value="Уставшее"><span class="custom-radio">Уставшее</span></label>
           </div>
         </div>
         <div class="step">
           <p class="mb-2">3. Хотите узнать свою нумерологическую миссию?</p>
           <div class="space-y-2">
-            <label><input type="radio" name="question3" value="Да" required> Да</label><br>
-            <label><input type="radio" name="question3" value="Не знаю"> Не знаю</label><br>
-            <label><input type="radio" name="question3" value="Нет"> Нет</label>
+            <label><input type="radio" name="question3" value="Да" required><span class="custom-radio">Да</span></label><br>
+            <label><input type="radio" name="question3" value="Не знаю"><span class="custom-radio">Не знаю</span></label><br>
+            <label><input type="radio" name="question3" value="Нет"><span class="custom-radio">Нет</span></label>
           </div>
         </div>
         <div class="step">
@@ -136,8 +159,8 @@
 <!-- Отзывы -->
 <section class="py-16 px-6 text-center bg-pink-50">
   <h3 class="text-3xl font-semibold text-purple-600 mb-6">Отзывы клиентов</h3>
-  <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
-    <div class="bg-white p-4 rounded-xl shadow-md">
+  <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6 overflow-x-auto snap-x flex md:grid-cols-none md:flex-nowrap scroll-smooth">
+    <div class="bg-white p-4 rounded-xl shadow-md snap-center min-w-[90%] md:min-w-0">
       <img src="https://i.imgur.com/wzpvKvy.jpeg" alt="Отзыв 1" class="rounded-lg w-full h-auto" />
     </div>
     <div class="bg-white p-4 rounded-xl shadow-md">
@@ -225,9 +248,8 @@ const steps = document.querySelectorAll(".step");
 
   nextBtn.addEventListener("click", goToNextStep);
 
-  document.querySelectorAll("input[type='radio']").forEach(radio => {
-    radio.addEventListener("change", goToNextStep);
-  });
+  // убран автоматический переход на следующий шаг при выборе
+
 </script>
 
 <!-- WhatsApp Button -->
