@@ -107,28 +107,65 @@
 <!-- Отзывы -->
 <section class="py-16 px-6 text-center bg-pink-50">
   <h3 class="text-3xl font-semibold text-purple-600 mb-6">Отзывы клиентов</h3>
-  <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
-    <div class="bg-white p-6 rounded-xl shadow-md">
-      <p class="italic text-gray-700">“После консультации с Алиной я увидела причину своих страхов и начала действовать. Спасибо за мягкость и глубину.”</p>
-      <p class="mt-4 text-pink-600 font-medium">— Мария, 34 года</p>
-    </div>
-    <div class="bg-white p-6 rounded-xl shadow-md">
-      <p class="italic text-gray-700">“Марафон был волшебным. Я стала спокойнее и увереннее. Очень благодарна!”</p>
-      <p class="mt-4 text-pink-600 font-medium">— Екатерина, 29 лет</p>
+  <div class="max-w-4xl mx-auto relative overflow-hidden">
+    <div id="testimonialSlider" class="transition duration-1000 ease-in-out grid md:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded-xl shadow-md">
+        <p class="italic text-gray-700">“После консультации с Алиной я увидела причину своих страхов и начала действовать. Спасибо за мягкость и глубину.”</p>
+        <p class="mt-4 text-pink-600 font-medium">— Мария, 34 года</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md">
+        <p class="italic text-gray-700">“Марафон был волшебным. Я стала спокойнее и увереннее. Очень благодарна!”</p>
+        <p class="mt-4 text-pink-600 font-medium">— Екатерина, 29 лет</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md">
+        <p class="italic text-gray-700">“Просто магия. Всё, что сказала Алина — сбылось. Жду следующую встречу!”</p>
+        <p class="mt-4 text-pink-600 font-medium">— Ольга, 40 лет</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md">
+        <p class="italic text-gray-700">“Это был поворотный момент в моей жизни. Благодарю за путь к себе.”</p>
+        <p class="mt-4 text-pink-600 font-medium">— Светлана, 37 лет</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md">
+        <p class="italic text-gray-700">“Я перестала бояться жить. Мои внутренние стены исчезли.”</p>
+        <p class="mt-4 text-pink-600 font-medium">— Лариса, 42 года</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-md">
+        <p class="italic text-gray-700">“Чувствую себя женщиной, счастливой и сильной. Благодарю от всей души.”</p>
+        <p class="mt-4 text-pink-600 font-medium">— Юлия, 31 год</p>
+      </div>
     </div>
   </div>
 </section>
 
+<script>
+  const slider = document.getElementById("testimonialSlider");
+  let index = 0;
+  const totalSlides = 3; // 6 отзывов, 2 на экране = 3 слайда
+  setInterval(() => {
+    index = (index + 1) % totalSlides;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  }, 5000);
+</script>
+
 <!-- Календарь записи -->
 <section class="py-16 px-6 text-center bg-white">
   <h3 class="text-3xl font-semibold text-purple-600 mb-6">Записаться на консультацию</h3>
-  <div class="max-w-3xl mx-auto">
+  <button onclick="document.getElementById('calendarModal').classList.remove('hidden')"
+    class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-full shadow-md">
+    Открыть календарь
+  </button>
+</section>
+
+<!-- Модальное окно календаря -->
+<div id="calendarModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white p-6 rounded-xl shadow-xl max-w-4xl w-full relative">
+    <button onclick="document.getElementById('calendarModal').classList.add('hidden')"
+      class="absolute top-4 right-4 text-gray-600 hover:text-black text-2xl">&times;</button>
     <iframe
       src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0ExviN2HW0STwY2QBpMwa2qkK4YMl9rHe_9Bx1jRHMMrEhRB5PQyQ9lomqmyRKuSw2Ke6Wdvvf?gv=true"
-      style="border: 0" width="100%" height="400" frameborder="0" class="rounded-lg shadow-md"></iframe>
+      style="border: 0" width="100%" height="500" frameborder="0" class="rounded-lg shadow-md"></iframe>
   </div>
-  <p class="text-sm text-gray-500 mt-4">Выберите дату и оставьте заявку — мы подтвердим время встречи!</p>
-</section>
+</div>
 
 <script>
   const steps = document.querySelectorAll(".step");
