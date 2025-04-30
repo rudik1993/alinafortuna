@@ -157,14 +157,17 @@ input[type='radio']:checked + .custom-radio {
 </section>
 
 <!-- Отзывы -->
-<section class="py-16 px-6 text-center bg-pink-50">
+<section class="py-16 px-6 text-center bg-pink-50 relative">
   <h3 class="text-3xl font-semibold text-purple-600 mb-6">Отзывы клиентов</h3>
-  <div class="max-w-4xl mx-auto md:grid md:grid-cols-2 gap-6 overflow-x-auto md:overflow-visible flex-nowrap scroll-smooth snap-x flex md:flex-wrap">
+  <div class="absolute left-4 top-4 md:left-[-100px] md:top-10 hidden md:block">
+    <img src="https://images.wallpaperscraft.ru/image/single/serdtse_poverhnost_liubov_85684_1920x1080.jpg" alt="Сердце" class="rounded-full w-32 h-32 object-cover opacity-30 hover:opacity-60 transition" />
+  </div>
+  <div class="max-w-4xl mx-auto md:grid md:grid-cols-2 gap-6 overflow-x-auto md:overflow-visible flex-nowrap scroll-smooth snap-x flex md:flex-wrap pb-6">
     <div class="bg-white p-4 rounded-xl shadow-md snap-center min-w-[80vw] max-w-[80vw] md:min-w-0 md:max-w-none flex-shrink-0">
       <img src="https://i.imgur.com/wzpvKvy.jpeg" alt="Отзыв 1" class="rounded-lg w-full h-auto object-contain" />
     </div>
-    <div class="bg-white p-4 rounded-xl shadow-md snap-center min-w-[90%] md:min-w-0 flex-shrink-0">
-      <img src="https://i.imgur.com/wzpvKvy.jpeg" alt="Отзыв 2" class="rounded-lg w-full h-auto" />
+    <div class="bg-white p-4 rounded-xl shadow-md snap-center min-w-[80vw] max-w-[80vw] md:min-w-0 md:max-w-none flex-shrink-0">
+      <img src="https://i.imgur.com/wzpvKvy.jpeg" alt="Отзыв 2" class="rounded-lg w-full h-auto object-contain" />
     </div>
   </div>
 </section>
