@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alina Fortuna</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com">  document.getElementById("quizForm").addEventListener("submit", function() {
+    setTimeout(() => {
+      document.getElementById("quizForm").style.display = "none";
+      document.getElementById("thankYouMessage").classList.remove("hidden");
+    }, 300);
+  });
+</script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -54,105 +60,68 @@
     <!-- Квиз -->
     <section class="py-16 px-6 text-center bg-white">
       <h3 class="text-3xl font-semibold text-purple-600 mb-4">Мини-квиз: почувствуй свой путь</h3>
-      <form id="quizForm" class="max-w-xl mx-auto space-y-6">
+      <form id="quizForm" class="max-w-xl mx-auto space-y-6" method="POST" action="https://formspree.io/f/xldbgarn">
         <div class="step active">
           <p class="mb-2">1. Что вас волнует сейчас больше всего?</p>
-          <select class="w-full px-4 py-2 border rounded-md" required>
-            <option>Выбор в жизни</option>
-            <option>Отношения</option>
-            <option>Страх и тревожность</option>
-            <option>Деньги</option>
-          </select>
+          <div class="space-y-2">
+            <label><input type="radio" name="question1" value="Выбор в жизни" required> Выбор в жизни</label><br>
+            <label><input type="radio" name="question1" value="Отношения"> Отношения</label><br>
+            <label><input type="radio" name="question1" value="Страх и тревожность"> Страх и тревожность</label><br>
+            <label><input type="radio" name="question1" value="Деньги"> Деньги</label>
+          </div>
         </div>
         <div class="step">
           <p class="mb-2">2. Как вы оцениваете своё эмоциональное состояние?</p>
-          <select class="w-full px-4 py-2 border rounded-md">
-            <option>Спокойное</option>
-            <option>Смешанное</option>
-            <option>Раздражённое</option>
-            <option>Уставшее</option>
-          </select>
+          <div class="space-y-2">
+            <label><input type="radio" name="question2" value="Спокойное" required> Спокойное</label><br>
+            <label><input type="radio" name="question2" value="Смешанное"> Смешанное</label><br>
+            <label><input type="radio" name="question2" value="Раздражённое"> Раздражённое</label><br>
+            <label><input type="radio" name="question2" value="Уставшее"> Уставшее</label>
+          </div>
         </div>
         <div class="step">
           <p class="mb-2">3. Хотите узнать свою нумерологическую миссию?</p>
-          <select class="w-full px-4 py-2 border rounded-md">
-            <option>Да</option>
-            <option>Не знаю</option>
-            <option>Нет</option>
-          </select>
+          <div class="space-y-2">
+            <label><input type="radio" name="question3" value="Да" required> Да</label><br>
+            <label><input type="radio" name="question3" value="Не знаю"> Не знаю</label><br>
+            <label><input type="radio" name="question3" value="Нет"> Нет</label>
+          </div>
         </div>
         <div class="step">
-          <p class="mb-2">4. Ваш e-mail и имя, чтобы получить анализ и подарок:</p>
-          <input type="text" class="w-full px-4 py-2 border rounded-md mb-2" placeholder="Имя" required />
-          <input type="email" class="w-full px-4 py-2 border rounded-md" placeholder="Email" required />
+          <p class="mb-2">4. Ваше имя и email:</p>
+          <input type="text" name="name" class="w-full px-4 py-2 border rounded-md mb-2" placeholder="Имя" required />
+          <input type="email" name="email" class="w-full px-4 py-2 border rounded-md" placeholder="Email" required />
         </div>
         <button type="button" id="nextBtn" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-md shadow transition">Далее</button>
         <button type="submit" id="submitBtn" class="hidden bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-md shadow transition">Отправить</button>
       </form>
+      <div class="mt-6 text-green-600 font-medium hidden" id="thankYouMessage">Спасибо! Ваша заявка отправлена 💌</div>
     </section>
 
-    <!-- Лид-магнит -->
-    <section class="py-12 px-6 text-center bg-pink-50">
-      <h3 class="text-2xl font-semibold text-pink-600 mb-2">Скачай подарок</h3>
-      <p class="text-gray-700 mb-4">PDF-инструкция по разбору вашей даты рождения</p>
-      <a href="/alina_gift.pdf" download class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded shadow">Скачать PDF</a>
-    </section>
+<script>
+  const steps = document.querySelectorAll(".step");
+  const nextBtn = document.getElementById("nextBtn");
+  const submitBtn = document.getElementById("submitBtn");
+  let currentStep = 0;
 
-    <!-- Сеансы -->
-    <section class="py-16 px-6 text-center">
-      <h3 class="text-3xl font-semibold text-purple-600 mb-6">Мои сеансы</h3>
-      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        <div class="bg-white p-6 rounded-xl shadow-md">
-          <h4 class="text-xl font-bold mb-2">Нумерологический разбор</h4>
-          <p class="mb-4 text-gray-600">Глубокое понимание себя и своей энергии.</p>
-          <a href="#" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Записаться — 30€</a>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-md">
-          <h4 class="text-xl font-bold mb-2">Консультация 1:1</h4>
-          <p class="mb-4 text-gray-600">Личное сопровождение в вашем пути.</p>
-          <a href="#" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Записаться — 45€</a>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-md">
-          <h4 class="text-xl font-bold mb-2">Марафон "Женская сила"</h4>
-          <p class="mb-4 text-gray-600">Погружение в себя и свои ресурсы.</p>
-          <a href="#" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Участвовать — 25€</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Соцсети -->
-    <section class="py-10 px-6 text-center">
-      <h4 class="text-2xl mb-4 font-medium text-purple-700">Мы в соцсетях</h4>
-      <div class="flex justify-center gap-8 text-3xl">
-        <a href="https://www.instagram.com/alina_fortunalove/" target="_blank" class="text-pink-600 hover:scale-110 transition"><i class="fab fa-instagram"></i></a>
-        <a href="https://t.me/alinafortunalove" target="_blank" class="text-blue-400 hover:scale-110 transition"><i class="fab fa-telegram"></i></a>
-        <a href="https://www.facebook.com/alina.katysheva/" target="_blank" class="text-blue-700 hover:scale-110 transition"><i class="fab fa-facebook"></i></a>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="text-center py-6 text-sm text-gray-600 bg-fade">
-      &copy; 2025 Alina Fortuna. Все права защищены.
-    </footer>
-  </div>
-
-  <script>
-    const steps = document.querySelectorAll(".step");
-    const nextBtn = document.getElementById("nextBtn");
-    const submitBtn = document.getElementById("submitBtn");
-    let currentStep = 0;
-
-    nextBtn.addEventListener("click", () => {
-      if (currentStep < steps.length - 1) {
-        steps[currentStep].classList.remove("active");
-        currentStep++;
-        steps[currentStep].classList.add("active");
-        if (currentStep === steps.length - 1) {
-          nextBtn.classList.add("hidden");
-          submitBtn.classList.remove("hidden");
-        }
+  function goToNextStep() {
+    if (currentStep < steps.length - 1) {
+      steps[currentStep].classList.remove("active");
+      currentStep++;
+      steps[currentStep].classList.add("active");
+      if (currentStep === steps.length - 1) {
+        nextBtn.classList.add("hidden");
+        submitBtn.classList.remove("hidden");
       }
-    });
-  </script>
+    }
+  }
+
+  nextBtn.addEventListener("click", goToNextStep);
+
+  document.querySelectorAll("input[type='radio']").forEach(radio => {
+    radio.addEventListener("change", goToNextStep);
+  });
+</script>
+
 </body>
 </html>
