@@ -103,7 +103,7 @@
     <label for="email" class="block mb-2 text-gray-700">Ваш email для получения результата:</label>
     <input type="email" id="email" name="email" required class="w-full p-2 border rounded" />
   </div>
-  <button onclick="openModal('modal1')" class="mt-4 px-6 py-2 rounded-full text-white bg-pink-500 hover:bg-pink-600 transform transition-transform duration-300 hover:scale-105 shadow-md">Подробнее</button>
+  <button onclick="openModal('modal3')" class="mt-4 px-6 py-2 rounded-full text-white bg-yellow-500 hover:bg-yellow-600 transform transition-transform duration-300 hover:scale-105 shadow-md">Подробнее</button>
 </form>
 </section>
 
@@ -154,25 +154,16 @@
 </section>
 
 <!-- Модальные окна описаний консультаций -->
-<div id="modal1" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden transition-opacity duration-300">
-  <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
-    <button onclick="closeModal('modal1')" class="absolute top-4 right-4 text-gray-600 hover:text-black text-2xl">&times;</button>
-    <h3 class="text-xl font-semibold mb-4">Диагностика по дате рождения</h3>
-    <p>Разбор вашей уникальной матрицы по дате рождения: предназначение, задачи, сильные и слабые стороны, подсознательные установки и рекомендации.</p>
+$1
+    <button onclick="openCalendarModal(); closeModal('modal1');" class="mt-6 px-6 py-2 rounded-full text-white bg-pink-500 hover:bg-pink-600 transition-transform duration-300 transform hover:scale-105 shadow-md">Записаться</button>
   </div>
 </div>
-<div id="modal2" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden transition-opacity duration-300">
-  <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
-    <button onclick="closeModal('modal2')" class="absolute top-4 right-4 text-gray-600 hover:text-black text-2xl">&times;</button>
-    <h3 class="text-xl font-semibold mb-4">Индивидуальная консультация</h3>
-    <p>Глубокая проработка запроса через нумерологию, коучинг, подсознательные паттерны и личный план действий.</p>
+$1
+    <button onclick="openCalendarModal(); closeModal('modal2');" class="mt-6 px-6 py-2 rounded-full text-white bg-purple-500 hover:bg-purple-600 transition-transform duration-300 transform hover:scale-105 shadow-md">Записаться</button>
   </div>
 </div>
-<div id="modal3" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden transition-opacity duration-300">
-  <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
-    <button onclick="closeModal('modal3')" class="absolute top-4 right-4 text-gray-600 hover:text-black text-2xl">&times;</button>
-    <h3 class="text-xl font-semibold mb-4">Детская нумерология</h3>
-    <p>Разбор врождённых качеств и потенциала ребёнка. Как помочь ему раскрыться, какие у него сильные и слабые стороны, как направить мягко и с любовью.</p>
+$1
+    <button onclick="openCalendarModal(); closeModal('modal3');" class="mt-6 px-6 py-2 rounded-full text-white bg-yellow-500 hover:bg-yellow-600 transition-transform duration-300 transform hover:scale-105 shadow-md">Записаться</button>
   </div>
 </div>
 
