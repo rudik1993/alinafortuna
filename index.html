@@ -19,11 +19,13 @@ $1
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
   <style>
 @keyframes zoomFade {
-  from { opacity: 0; transform: scale(0.95); }
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
   to { opacity: 1; transform: scale(1); }
 }
 .animate-zoom {
-  animation: zoomFade 0.3s ease-out;
+  animation: zoomFade 0.6s ease-out;
 }
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(20px); }
@@ -332,7 +334,7 @@ window.addEventListener('scroll', () => {
 <!-- Кнопка WhatsApp -->
 <div class="fixed bottom-6 right-6 z-50">
   <a href="https://wa.me/37062532959" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg flex items-center space-x-2 animate-bounce">
-    <i class="fab fa-whatsapp text-2xl"></i>
+    <i class="fab fa-whatsapp text-2xl leading-none"></i>
     <span class="hidden md:inline">Написать в WhatsApp</span>
   </a>
 </div>
@@ -342,7 +344,7 @@ window.addEventListener('scroll', () => {
   <a href="#" class="underline hover:text-pink-600">Политика конфиденциальности</a> © 2025 Alina Fortuna
   <section class="py-10 px-6 text-center">
     <h4 class="text-2xl mb-4 font-medium text-purple-700">Мы в соцсетях</h4>
-    <div class="flex justify-center gap-8 text-3xl">
+    <div class="flex justify-center gap-8 text-3xl text-center">
       <a href="https://www.instagram.com/alina_fortunalove/" target="_blank" class="text-pink-600 hover:scale-110 transition"><i class="fab fa-instagram"></i></a>
       <a href="https://t.me/alinafortunalove" target="_blank" class="text-blue-400 hover:scale-110 transition"><i class="fab fa-telegram"></i></a>
       <a href="https://www.facebook.com/alina.katysheva/" target="_blank" class="text-blue-700 hover:scale-110 transition"><i class="fab fa-facebook"></i></a>
