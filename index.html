@@ -144,10 +144,15 @@ window.addEventListener('load', () => {
   const intro = document.querySelector('.relative.h-screen');
   intro.style.transition = 'opacity 1s ease';
   setTimeout(() => {
-    intro.style.opacity = '0';
+    intro.style.opacity = '0.01';
+    intro.style.pointerEvents = 'none';
+    intro.style.position = 'absolute';
+    intro.style.zIndex = '0';
     setTimeout(() => {
-      intro.style.display = 'none';
       document.getElementById('main').scrollIntoView({ behavior: 'smooth' });
+    }, 1000);
+  }, 5000);
+});
     }, 1000);
   }, 5000);
 });
