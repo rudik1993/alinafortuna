@@ -14,42 +14,6 @@ function handleQuizSubmit(event) {
   document.getElementById('thankYouMessage').classList.remove('hidden');
   form.reset();
 }
-$1
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
-  <style>
-@keyframes zoomFade {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-  to { opacity: 1; transform: scale(1); }
-}
-.animate-zoom {
-  animation: zoomFade 0.6s ease-out;
-}
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-in {
-  animation: fade-in 1s ease forwards;
-  opacity: 0;
-}
-.delay-200 {
-  animation-delay: 0.2s;
-}
-</style>
-  <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-// Аналитика кликов по кнопкам 'Записаться'
-document.querySelectorAll('button').forEach(btn => {
-  if (btn.textContent.includes('Записаться')) {
-    btn.addEventListener('click', () => {
-      console.log(`[Analytics] Clicked 'Записаться' — ${btn.closest('div')?.querySelector('h3')?.textContent || 'unknown'}`);
-    });
-  }
-});
 </script>
   <script>
     (function(){
@@ -76,9 +40,10 @@ document.querySelectorAll('button').forEach(btn => {
     });
   </script>
   <style>#tsparticles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }</style>
-  <div id="tsparticles"></div>
+  
 </head>
 <body class="min-h-screen flex flex-col scroll-smooth">
+<div id="tsparticles"></div>
 
 <!-- Sticky header -->
 <header id="stickyHeader" class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 shadow-md hidden transition-all duration-300">
