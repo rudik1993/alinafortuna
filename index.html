@@ -56,7 +56,7 @@
 <!-- Welcome с видео -->
 <div class="relative h-screen flex flex-col justify-center items-center text-white text-center" style="opacity: 1; transition: opacity 1s ease;">
   <video autoplay muted loop playsinline preload="auto" class="intro-video">
-  <source src="assets/videos/sunset.mp4.mp4" type="video/mp4">
+  <source src="assets/videos/zakat.mp4.mp4" type="video/mp4">
   <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80" alt="Закат" class="w-full h-full object-cover" />
 </video>
   <div class="overlay">
@@ -72,7 +72,7 @@
 <div id="main" class="relative z-10 bg-fade">
 <!-- Офферы -->
 <section class="py-16 px-6 text-center">
-  <h1 id="offersTitle" class="text-4xl md:text-5xl font-bold mb-6 text-pink-700">Путь к себе начинается с состояния</h1>
+  <h1 id="offersTitle" class="text-4xl md:text-5xl font-bold mb-6 text-pink-700 opacity-0 translate-y-4 transition duration-1000">Путь к себе начинается с состояния</h1>
   <p class="max-w-3xl mx-auto text-lg text-gray-800 mb-6">Программа для женщин, которые ищут опору в себе, хотят понять свои внутренние процессы и восстановить связь с собой.</p>
   <p class="max-w-3xl mx-auto text-gray-700 mb-4">На личном опыте я убедилась, что всё внешнее — это отражение внутреннего состояния человека. На практиках я помогаю услышать свой внутренний голос, увидеть свои сильные стороны и приблизиться к лучшей версии себя.</p>
   <p class="max-w-3xl mx-auto text-gray-700 mb-4">Моя задача — помочь вам заглянуть вглубь себя, определить вектор развития, снять тревожность и найти внутреннюю опору. Через осознанность и трансформации вы почувствуете свою уникальность, уверенность и мотивацию к действиям.</p>
@@ -82,20 +82,33 @@
 </section>
 <!-- Раскрой свою силу -->
 <section class="py-16 px-6 text-center">
-  <h2 id="powerTitle" class="text-4xl font-bold mb-4 text-pink-700">Раскрой свою силу</h2>
+  <h2 id="powerTitle" class="text-4xl font-bold mb-4 text-pink-700 opacity-0 translate-y-4 transition duration-1000">Раскрой свою силу</h2>
   <p class="text-gray-700 max-w-2xl mx-auto">Уже более <strong>300 женщин</strong> изменили свою жизнь через нумерологию и душевную работу с Алиной.</p>
 </section>
 
 <!-- Квиз -->
 <section class="py-16 px-6 text-center bg-white">
-  <h3 id="quizTitle" class="text-3xl font-semibold text-purple-600 mb-4">Мини-квиз: почувствуй свой путь</h3>
-  <!-- форма квиза оставлена без изменений -->
-  <!-- ... -->
+  <h3 id="quizTitle" class="text-3xl font-semibold text-purple-600 mb-4 opacity-0 translate-y-4 transition duration-1000">Мини-квиз: почувствуй свой путь</h3>
+  <form action="#" method="POST" class="max-w-xl mx-auto bg-gray-100 p-6 rounded-xl shadow-md">
+    <div class="mb-4">
+      <label for="q1" class="block mb-2 text-gray-700">Какое чувство вам хочется испытать прямо сейчас?</label>
+      <select id="q1" name="q1" class="w-full p-2 border rounded">
+        <option>Спокойствие</option>
+        <option>Уверенность</option>
+        <option>Радость</option>
+      </select>
+    </div>
+    <div class="mb-4">
+      <label for="email" class="block mb-2 text-gray-700">Ваш email для получения результата:</label>
+      <input type="email" id="email" name="email" required class="w-full p-2 border rounded" />
+    </div>
+    <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full">Получить результат</button>
+  </form>
 </section>
 
 <!-- О себе -->
 <section class="py-16 px-6 text-center">
-  <h3 id="aboutTitle" class="text-3xl font-semibold text-pink-600 mb-4">Обо мне</h3>
+  <h3 id="aboutTitle" class="text-3xl font-semibold text-pink-600 mb-4 opacity-0 translate-y-4 transition duration-1000">Обо мне</h3>
   <p class="max-w-2xl mx-auto text-gray-700">Меня зовут Алина, я работаю с нумерологией, помогаю женщинам раскрыть свою силу и выйти на путь внутренней трансформации. Мои консультации помогают увидеть свою миссию, распознать блоки и начать меняться с любовью к себе.</p>
 </section>
 
@@ -116,16 +129,29 @@
 
 <!-- Консультации -->
 <section class="py-16 px-6 text-center bg-white">
-  <h3 id="consultTitle" class="text-3xl font-semibold text-purple-600 mb-6">Мои консультации</h3>
+  <h3 id="consultTitle" class="text-3xl font-semibold text-purple-600 mb-6 opacity-0 translate-y-4 transition duration-1000">Мои консультации</h3>
   <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-    <!-- три карточки консультаций -->
-    <!-- ... -->
+    <div class="bg-pink-100 p-6 rounded-xl shadow-md flex flex-col items-center">
+      <i class="fas fa-heart text-4xl text-pink-600 mb-4"></i>
+      <h4 class="text-xl font-semibold mb-2">Диагностика по дате рождения</h4>
+      <p class="text-gray-700">Разбор матрицы, предназначения, задач, потенциала</p>
+    </div>
+    <div class="bg-purple-100 p-6 rounded-xl shadow-md flex flex-col items-center">
+      <i class="fas fa-star text-4xl text-purple-600 mb-4"></i>
+      <h4 class="text-xl font-semibold mb-2">Индивидуальная консультация</h4>
+      <p class="text-gray-700">Глубинная работа с запросом, нумерология + коучинг</p>
+    </div>
+    <div class="bg-yellow-100 p-6 rounded-xl shadow-md flex flex-col items-center">
+      <i class="fas fa-magic text-4xl text-yellow-600 mb-4"></i>
+      <h4 class="text-xl font-semibold mb-2">Детская нумерология</h4>
+      <p class="text-gray-700">Понимание сильных и слабых сторон ребёнка</p>
+    </div>
   </div>
 </section>
 
 <!-- Календарь записи -->
 <section class="py-16 px-6 text-center bg-white">
-  <h3 id="bookingTitle" class="text-3xl font-semibold text-purple-600 mb-6">Записаться на консультацию</h3>
+  <h3 id="bookingTitle" class="text-3xl font-semibold text-purple-600 mb-6 opacity-0 translate-y-4 transition duration-1000">Записаться на консультацию</h3>
   <button onclick="openCalendarModal()" class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-full shadow-md">Открыть календарь</button>
 </section>
 
@@ -139,7 +165,7 @@
 
 <!-- Скрипты -->
 <script>
-// Автоматическое скрытие видео-заставки через 5 секунд
+// Автоматическое скрытие видео-заставки через 5 секунд + возможность вернуться наверх
 window.addEventListener('load', () => {
   const intro = document.querySelector('.relative.h-screen');
   intro.style.transition = 'opacity 1s ease';
@@ -153,8 +179,33 @@ window.addEventListener('load', () => {
     }, 1000);
   }, 5000);
 });
-    }, 1000);
-  }, 5000);
+
+// Показ модального календаря
+function openCalendarModal() {
+  const modal = document.getElementById('calendarModal');
+  modal.classList.remove('hidden');
+  modal.classList.remove('opacity-0');
+}
+
+function closeCalendarModal(event) {
+  if (event.target.id === 'calendarModal') {
+    const modal = document.getElementById('calendarModal');
+    modal.classList.add('opacity-0');
+    setTimeout(() => modal.classList.add('hidden'), 300);
+  }
+}
+
+// Анимация появления всех заголовков
+window.addEventListener('scroll', () => {
+  const animated = [
+    'offersTitle', 'powerTitle', 'quizTitle', 'aboutTitle', 'consultTitle', 'bookingTitle', 'reviewsTitle'
+  ];
+  animated.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < window.innerHeight) {
+      el.classList.remove('opacity-0', 'translate-y-4');
+    }
+  });
 });
 </script>
 
