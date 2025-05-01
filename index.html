@@ -55,13 +55,12 @@
 <!-- Welcome с видео -->
 <div class="relative h-screen flex flex-col justify-center items-center text-white text-center">
   <video autoplay muted loop playsinline class="intro-video">
-    <source src="assets/videos/sunset.mp4" type="video/mp4">
-    
-  </video>
+  <source src="assets/videos/sunset.mp4" type="video/mp4">
+  <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80" alt="Закат" class="w-full h-full object-cover" />
+</video>
   <div class="overlay">
-    <h1>Добро пожаловать в мир Алины</h1>
-    <button onclick="document.getElementById('main').scrollIntoView({ behavior: 'smooth' });">Войти</button>
-  </div>
+  <h1>Добро пожаловать в мир Алины</h1>
+</div>
   <div class="absolute bottom-10 w-full flex justify-center z-10">
     <button onclick="document.getElementById('main').scrollIntoView({ behavior: 'smooth' });" class="text-white text-4xl opacity-70 hover:opacity-100 transition animate-bounce">
       <i class="fas fa-angle-down"></i>
