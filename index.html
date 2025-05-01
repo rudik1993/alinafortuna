@@ -24,6 +24,16 @@
 </head>
 <body class="min-h-screen flex flex-col scroll-smooth">
 
+<!-- Sticky header -->
+<header id="stickyHeader" class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 shadow-md hidden transition-all duration-300">
+  <nav class="max-w-6xl mx-auto px-4 py-2 flex justify-center gap-6 text-sm md:text-base">
+    <a href="#aboutTitle" class="text-gray-700 hover:text-pink-600 transition">Обо мне</a>
+    <a href="#consultTitle" class="text-gray-700 hover:text-pink-600 transition">Консультации</a>
+    <a href="#reviewsTitle" class="text-gray-700 hover:text-pink-600 transition">Отзывы</a>
+    <a href="#bookingTitle" class="text-gray-700 hover:text-pink-600 transition">Календарь</a>
+  </nav>
+</header>
+
 <!-- Welcome с видео -->
 <div class="relative h-screen flex flex-col justify-center items-center text-white text-center" style="opacity: 1; transition: opacity 1s ease;">
   <video autoplay muted loop playsinline preload="auto" class="intro-video">
@@ -121,12 +131,12 @@
 <!-- Консультации -->
 <section class="py-16 px-6 text-center bg-white">
   <h3 id="consultTitle" class="text-3xl font-semibold text-purple-600 mb-6 opacity-0 translate-y-4 transition duration-1000">Мои консультации</h3>
-  <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-center">
   <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center">
     <i class="fas fa-heart text-4xl text-pink-600 mb-4"></i>
     <h4 class="text-xl font-semibold mb-2">Диагностика по дате рождения</h4>
     <p class="text-gray-700">Разбор матрицы, предназначения, задач, потенциала</p>
-    <button onclick="openModal('modal1')" class="mt-4 bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full">Подробнее</button>
+    <button onclick="openModal('modal1')" class="mt-4 bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105">Подробнее</button>
   </div>
   <div class="bg-white p-6 rounded-xl shadow-md flex flex-col items-center">
     <i class="fas fa-star text-4xl text-purple-600 mb-4"></i>
@@ -183,9 +193,17 @@
 <!-- Скрипты -->
 <script>
 // Видео остаётся на месте — без скрытия или изменения стилей
-  setTimeout(() => {
+  let userInteracted = false;
+
+['scroll', 'keydown', 'click', 'touchstart'].forEach(evt => {
+  window.addEventListener(evt, () => userInteracted = true, { once: true });
+});
+
+setTimeout(() => {
+  if (!userInteracted) {
     document.getElementById('main').scrollIntoView({ behavior: 'smooth' });
-  }, 5000);
+  }
+}, 5000);
 
 
 // Показ модального календаря
@@ -205,14 +223,27 @@ function closeCalendarModal(event) {
 
 // Модальные окна консультаций
 function openModal(id) {
-  document.getElementById(id).classList.remove('hidden');
+  const modal = document.getElementById(id);
+  modal.classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+  modal.onclick = function (e) {
+    if (e.target === modal) closeModal(id);
+  }
 }
 function closeModal(id) {
-  document.getElementById(id).classList.add('hidden');
+  const modal = document.getElementById(id);
+  modal.classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
 }
 
 // Анимация появления всех заголовков
 window.addEventListener('scroll', () => {
+  const stickyHeader = document.getElementById('stickyHeader');
+  if (window.scrollY > 100) {
+    stickyHeader.classList.remove('hidden');
+  } else {
+    stickyHeader.classList.add('hidden');
+  }
   const animated = [
     'offersTitle', 'powerTitle', 'quizTitle', 'aboutTitle', 'consultTitle', 'bookingTitle', 'reviewsTitle'
   ];
