@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alina Fortuna</title>
@@ -36,6 +37,43 @@ $1
   animation-delay: 0.2s;
 }
 </style>
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+// Аналитика кликов по кнопкам 'Записаться'
+document.querySelectorAll('button').forEach(btn => {
+  if (btn.textContent.includes('Записаться')) {
+    btn.addEventListener('click', () => {
+      console.log(`[Analytics] Clicked 'Записаться' — ${btn.closest('div')?.querySelector('h3')?.textContent || 'unknown'}`);
+    });
+  }
+});
+</script>
+  <script>
+    (function(){
+      emailjs.init("user_xxxxxxxxxxxxxxxxx"); // ← заменишь на свой ID
+    })();
+  </script>
+
+  <!-- Particles background -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+      tsParticles.load("tsparticles", {
+        fullScreen: { enable: true, zIndex: -1 },
+        particles: {
+          number: { value: 30 },
+          size: { value: 2 },
+          move: { enable: true, speed: 0.4 },
+          opacity: { value: 0.3 },
+          color: { value: "#ffffff" },
+          links: { enable: false }
+        },
+        background: { color: "transparent" }
+      });
+    });
+  </script>
+  <style>#tsparticles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }</style>
+  <div id="tsparticles"></div>
 </head>
 <body class="min-h-screen flex flex-col scroll-smooth">
 
@@ -194,6 +232,22 @@ $1
     <button onclick="openCalendarModal(); closeModal('modal3');" class="mt-6 px-6 py-2 rounded-full text-white bg-yellow-500 hover:bg-yellow-600 transition-transform duration-300 transform hover:scale-105 shadow-md">Записаться</button>
   </div>
 </div>
+
+<!-- Блок с описанием откликов -->
+<section class="py-16 px-6 text-center bg-pink-50">
+  <div class="max-w-3xl mx-auto animate-fade-in">
+    <h3 class="text-2xl font-semibold text-pink-600 mb-6">Вам откликается это?</h3>
+    <ul class="text-left text-gray-700 text-lg list-disc pl-6 space-y-2">
+      <li>✅ Чувствуете тревожность, внутренние блоки, эмоциональную усталость</li>
+      <li>✅ Не знаете, чего хотите, куда двигаться</li>
+      <li>✅ Хотите лучше понять себя, потенциал, свои цели и ценности</li>
+      <li>✅ Ищете баланс, внутреннюю опору, уверенность</li>
+      <li>✅ Мечтаете быть свободным в своих чувствах, самовыражении, росте и развитии</li>
+      <li>✅ Задаетесь вопросом: в чём моя миссия, и как прожить жизнь осознанно</li>
+    </ul>
+    <p class="mt-6 text-purple-700 font-medium">Если хотя бы 2 пункта вам откликаются — эта программа для вас!</p>
+  </div>
+</section>
 
 <!-- Календарь записи -->
 <section class="py-16 px-6 text-center bg-white">
