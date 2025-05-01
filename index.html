@@ -89,7 +89,7 @@ document.querySelectorAll('button').forEach(btn => {
 
 <!-- Welcome с видео -->
 <div class="relative h-screen flex flex-col justify-center items-center text-white text-center" style="opacity: 1; transition: opacity 1s ease;">
-  <video $1class="intro-video w-full h-full object-cover">
+  <video autoplay muted loop playsinline class="intro-video w-full h-full object-cover">
   <source src="assets/videos/zakat.mp4.mp4" type="video/mp4">
   <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80" alt="Закат" class="w-full h-full object-cover" />
 </video>
@@ -124,7 +124,7 @@ document.querySelectorAll('button').forEach(btn => {
 <!-- Квиз -->
 <section class="py-16 px-6 text-center bg-white">
   <h3 id="quizTitle" class="text-3xl font-semibold text-purple-600 mb-4 opacity-0 translate-y-4 transition duration-1000">Мини-квиз: почувствуй свой путь</h3>
-  $1 onsubmit="handleQuizSubmit(event)">
+  <form id="quizForm" onsubmit="handleQuizSubmit(event)" class="max-w-xl mx-auto bg-gray-100 p-6 rounded-xl shadow-md">
   <div class="mb-4">
     <label for="q1" class="block mb-2 text-gray-700">1. Что вы чувствуете чаще всего в последнее время?</label>
     <select id="q1" name="q1" class="w-full p-2 border rounded">
@@ -157,7 +157,7 @@ document.querySelectorAll('button').forEach(btn => {
     <input type="email" id="email" name="email" required class="w-full p-2 border rounded" />
   </div>
   <button type="submit" class="mt-4 px-6 py-2 rounded-full text-white bg-yellow-500 hover:bg-yellow-600 transform transition-transform duration-300 hover:scale-105 shadow-md">Получить результат</button>
-$1
+</form>
 <p id="thankYouMessage" class="mt-4 text-green-600 text-lg hidden">Спасибо! Мы получили ваши ответы.</p>
 </section>
 
