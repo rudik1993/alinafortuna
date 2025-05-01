@@ -211,7 +211,7 @@ document.querySelectorAll('button').forEach(btn => {
 
 <!-- Модальные окна описаний консультаций -->
 <div id="modal1" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden transition-opacity duration-300">
-  <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative animate-zoom">
+  <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative animate-zoom transition-transform duration-700 ease-out">
     <button onclick="closeModal('modal1')" class="absolute top-4 right-4 text-gray-600 hover:text-black text-2xl">&times;</button>
     <h3 class="text-xl font-semibold mb-4">Диагностика по дате рождения</h3>
     <p>Разбор вашей уникальной матрицы по дате рождения: предназначение, задачи, сильные и слабые стороны, подсознательные установки и рекомендации.</p>
@@ -259,7 +259,7 @@ document.querySelectorAll('button').forEach(btn => {
 
 <!-- Модальное окно календаря -->
 <div id="calendarModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden transition-opacity duration-300 opacity-0" onclick="closeCalendarModal(event)">
-  <div class="bg-white p-6 rounded-xl shadow-xl max-w-4xl w-full relative animate-zoom">
+  <div class="bg-white p-6 rounded-xl shadow-xl max-w-4xl w-full relative animate-zoom transition-transform duration-700 ease-out">
     <button onclick="document.getElementById('calendarModal').classList.add('hidden')" class="absolute top-4 right-4 text-gray-600 hover:text-black text-2xl">&times;</button>
     <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0ExviN2HW0STwY2QBpMwa2qkK4YMl9rHe_9Bx1jRHMMrEhRB5PQyQ9lomqmyRKuSw2Ke6Wdvvf?gv=true" style="border: 0" width="100%" height="500" frameborder="0" class="rounded-lg shadow-md"></iframe>
   </div>
@@ -334,7 +334,7 @@ window.addEventListener('scroll', () => {
 <!-- Кнопка WhatsApp -->
 <div class="fixed bottom-6 right-6 z-50">
   <a href="https://wa.me/37062532959" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-full shadow-lg flex items-center space-x-2 animate-bounce">
-    <i class="fab fa-whatsapp text-2xl leading-none"></i>
+    <i class="fab fa-whatsapp text-2xl leading-none"></i><span class="ml-2 text-base md:hidden">Написать</span>
     <span class="hidden md:inline">Написать в WhatsApp</span>
   </a>
 </div>
@@ -344,7 +344,7 @@ window.addEventListener('scroll', () => {
   <a href="#" class="underline hover:text-pink-600">Политика конфиденциальности</a> © 2025 Alina Fortuna
   <section class="py-10 px-6 text-center">
     <h4 class="text-2xl mb-4 font-medium text-purple-700">Мы в соцсетях</h4>
-    <div class="flex justify-center gap-8 text-3xl text-center">
+    <div class="flex justify-center gap-8 text-3xl text-center text-gray-800">
       <a href="https://www.instagram.com/alina_fortunalove/" target="_blank" class="text-pink-600 hover:scale-110 transition"><i class="fab fa-instagram"></i></a>
       <a href="https://t.me/alinafortunalove" target="_blank" class="text-blue-400 hover:scale-110 transition"><i class="fab fa-telegram"></i></a>
       <a href="https://www.facebook.com/alina.katysheva/" target="_blank" class="text-blue-700 hover:scale-110 transition"><i class="fab fa-facebook"></i></a>
