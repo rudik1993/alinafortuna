@@ -4,52 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alina Fortuna</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com">function openModal(id) {
+  const modal = document.getElementById(id);
+  modal.classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+}
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  modal.classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+}
+</script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
-  <style>
-    body { font-family: 'Playfair Display', serif; }
-    .intro-video {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0; left: 0;
-      z-index: 0;
-    }
-    .overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(2px);
-      color: #fff;
-      text-align: center;
-      z-index: 2;
-    }
-    .overlay h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      color: #fff;
-    }
-    .overlay button {
-      padding: 10px 25px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.8);
-      color: #333;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .overlay button:hover {
-      background: #fff;
-    }
-  </style>
+  <style>$1
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 1s ease forwards;
+  opacity: 0;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
 </head>
 <body class="min-h-screen flex flex-col scroll-smooth">
 
@@ -60,7 +40,8 @@
   <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80" alt="Закат" class="w-full h-full object-cover" />
 </video>
   <div class="overlay">
-  <h1>Добро пожаловать в мир Алины</h1>
+    <h1 class="text-4xl md:text-5xl font-bold animate-fade-in">Добро пожаловать в мир Алины</h1>
+    <p class="mt-4 text-lg md:text-xl animate-fade-in delay-200">Погрузитесь в энергию трансформации и внутренней силы</p>
 </div>
   <div class="absolute bottom-10 w-full flex justify-center z-10">
     <button onclick="document.getElementById('main').scrollIntoView({ behavior: 'smooth' });" class="text-white text-4xl opacity-70 hover:opacity-100 transition animate-bounce">
@@ -172,21 +153,21 @@
 </section>
 
 <!-- Модальные окна описаний консультаций -->
-<div id="modal1" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+<div id="modal1" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden transition-opacity duration-300">
   <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
     <button onclick="closeModal('modal1')" class="absolute top-4 right-4 text-gray-600 hover:text-black text-2xl">&times;</button>
     <h3 class="text-xl font-semibold mb-4">Диагностика по дате рождения</h3>
     <p>Разбор вашей уникальной матрицы по дате рождения: предназначение, задачи, сильные и слабые стороны, подсознательные установки и рекомендации.</p>
   </div>
 </div>
-<div id="modal2" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+<div id="modal2" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden transition-opacity duration-300">
   <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
     <button onclick="closeModal('modal2')" class="absolute top-4 right-4 text-gray-600 hover:text-black text-2xl">&times;</button>
     <h3 class="text-xl font-semibold mb-4">Индивидуальная консультация</h3>
     <p>Глубокая проработка запроса через нумерологию, коучинг, подсознательные паттерны и личный план действий.</p>
   </div>
 </div>
-<div id="modal3" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+<div id="modal3" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden transition-opacity duration-300">
   <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg w-full relative">
     <button onclick="closeModal('modal3')" class="absolute top-4 right-4 text-gray-600 hover:text-black text-2xl">&times;</button>
     <h3 class="text-xl font-semibold mb-4">Детская нумерология</h3>
