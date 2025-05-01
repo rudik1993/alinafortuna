@@ -6,20 +6,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alina Fortuna</title>
-  <script src="https://cdn.tailwindcss.com">
-function handleQuizSubmit(event) {
-  event.preventDefault();
-  const form = document.getElementById('quizForm');
-  const formData = new FormData(form);
-  document.getElementById('thankYouMessage').classList.remove('hidden');
-  form.reset();
-}
-</script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    (function(){
-      emailjs.init("user_xxxxxxxxxxxxxxxxx"); // ← заменишь на свой ID
-    })();
-  </script>
+  function handleQuizSubmit(event) {
+    event.preventDefault();
+    const form = document.getElementById('quizForm');
+    const formData = new FormData(form);
+    document.getElementById('thankYouMessage').classList.remove('hidden');
+    form.reset();
+  }
+</script>
+<script>
+  (function(){
+    emailjs.init("user_xxxxxxxxxxxxxxxxx");
+  })();
+</script>
 
   <!-- Particles background -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
