@@ -118,7 +118,7 @@
 
 
 <!-- Индикаторы слайдов -->
-<div id="dots" class="fixed bottom-20 left-1/2 transform -translate-x-1/2 z-40 flex gap-2">
+<div id="dots" class="fixed bottom-16 left-1/2 transform -translate-x-1/2 z-40 flex gap-2">
   <span class="dot w-3 h-3 bg-white/50 rounded-full transition-all duration-300 cursor-pointer"></span>
   <span class="dot w-3 h-3 bg-white/50 rounded-full transition-all duration-300 cursor-pointer"></span>
   <span class="dot w-3 h-3 bg-white/50 rounded-full transition-all duration-300 cursor-pointer"></span>
@@ -128,7 +128,7 @@
 
 <!-- Соцсети и WhatsApp -->
 <!-- Соцсети по центру -->
-<div class="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-30 flex items-center gap-6 text-white animate-fade-in">
+<div class="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-30 flex items-center gap-6 text-white animate-fade-in justify-center">
   <a href="https://www.instagram.com/alina_fortunalove/" target="_blank" class="hover:scale-110 transition-transform">
     <i class="fab fa-instagram text-2xl"></i>
   </a>
@@ -149,6 +149,10 @@
 
 <script>
   const dots = document.querySelectorAll('.dot');
+  const slideSections = slider.querySelectorAll('section');
+  let currentSlide = 0;
+  const totalSlides = slider.children.length;
+
   function updateDots() {
     dots.forEach((dot, index) => {
       dot.classList.toggle('bg-white', index === currentSlide);
@@ -156,6 +160,16 @@
       dot.classList.toggle('scale-125', index === currentSlide);
     });
   }
+
+  function scrollSlides(direction) {
+    currentSlide = Math.max(0, Math.min(totalSlides - 1, currentSlide + direction));
+    slider.scrollTo({
+      left: currentSlide * window.innerWidth,
+      behavior: 'smooth'
+    });
+    updateDots();
+  }
+
   dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
       currentSlide = index;
@@ -166,6 +180,7 @@
       updateDots();
     });
   });
+
   slider.addEventListener('scroll', () => {
     const slideIndex = Math.round(slider.scrollLeft / window.innerWidth);
     if (slideIndex !== currentSlide) {
@@ -173,10 +188,7 @@
       updateDots();
     }
   });
-  updateDots();
 
-<script>
-  const slideSections = slider.querySelectorAll('section');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -185,8 +197,9 @@
       }
     });
   }, { threshold: 0.4 });
-
   slideSections.forEach(section => observer.observe(section));
+
+  updateDots();
 </script>
 
 </body>
