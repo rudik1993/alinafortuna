@@ -64,10 +64,10 @@
 <div id="slider" class="flex h-screen snap-x snap-mandatory overflow-x-scroll scroll-smooth w-full">
 
   <!-- Слайд 1: Приветствие -->
-  <section class="w-screen h-screen flex-shrink-0 opacity-0 transition-opacity duration-1000 ease-out">
+  <section class="w-screen h-screen flex-shrink-0 flex items-center justify-center text-center px-6 opacity-0 transition-opacity duration-1000 ease-out">
     <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80" alt="Закат" class="absolute inset-0 w-screen h-screen object-cover" />
     <div class="absolute inset-0 bg-black/40"></div>
-    <div class="relative z-10 px-6 fade-in">
+    <div class="relative z-10 px-6 fade-in max-w-3xl mx-auto">
       <h1 class="text-4xl md:text-6xl font-bold mb-4">Добро пожаловать в мир Алины</h1>
       <p class="text-lg md:text-xl mb-6 max-w-2xl mx-auto">Исследуйте свою душу, найдите опору и вдохновение через трансформационную работу с собой</p>
       <a href="#" class="inline-block px-8 py-3 bg-pink-600 hover:bg-pink-700 rounded-full text-white text-lg shadow-md transition-transform hover:scale-105">Начать путь</a>
@@ -118,15 +118,10 @@
 
 <script>
   const slideSections = slider.querySelectorAll('section');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('opacity-100');
-        entry.target.classList.remove('opacity-0');
-      }
-    });
-  }, { threshold: 0.6 });
-  slideSections.forEach(section => observer.observe(section));
+  slideSections.forEach(section => {
+    section.classList.remove('opacity-0');
+    section.classList.add('opacity-100');
+  });
 </script>
 
 <!-- Индикаторы слайдов -->
