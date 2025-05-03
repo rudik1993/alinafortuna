@@ -19,14 +19,44 @@
       0% { opacity: 0; transform: translateY(30px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+    .arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: white;
+      border-radius: 9999px;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .arrow:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    .arrow-left {
+      left: 1rem;
+    }
+    .arrow-right {
+      right: 1rem;
+    }
   </style>
 </head>
 <body class="bg-black text-white min-h-screen">
 
-<!-- Горизонтальный слайдер -->
-<div class="flex w-[300vw] h-screen snap-x snap-mandatory overflow-x-scroll scroll-smooth">
+<!-- Кнопки навигации -->
+<div class="arrow arrow-left" onclick="scrollSlides(-1)"><i class="fas fa-chevron-left"></i></div>
+<div class="arrow arrow-right" onclick="scrollSlides(1)"><i class="fas fa-chevron-right"></i></div>
 
-  <!-- Слайд 1: Изображение-фон -->
+<!-- Горизонтальный слайдер -->
+<div id="slider" class="flex w-[500vw] h-screen snap-x snap-mandatory overflow-x-scroll scroll-smooth">
+
+  <!-- Слайд 1: Приветствие -->
   <section class="w-screen h-screen flex-shrink-0 relative flex items-center justify-center text-center snap-start">
     <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80" alt="Закат" class="absolute inset-0 w-full h-full object-cover" />
     <div class="absolute inset-0 bg-black/40"></div>
@@ -37,18 +67,72 @@
     </div>
   </section>
 
-  <!-- Слайд 2 -->
+  <!-- Слайд 2: Обо мне -->
   <section class="w-screen h-screen flex-shrink-0 flex flex-col items-center justify-center text-center bg-white text-black px-6 snap-start">
-    <h2 class="text-4xl font-semibold mb-4">Консультации</h2>
-    <p class="max-w-xl text-lg text-gray-700">Вы получите личный разбор, рекомендации и ясность в вопросах, которые сейчас важны именно вам.</p>
+    <h2 class="text-4xl font-semibold mb-4">Обо мне</h2>
+    <p class="max-w-xl text-lg text-gray-700">Я — Алина, практикующий нумеролог и проводник на пути к себе. Помогаю женщинам возвращать внутреннюю силу и ясность через работу с подсознанием, коучинг и энергию чисел.</p>
   </section>
 
-  <!-- Слайд 3 -->
-  <section class="w-screen h-screen flex-shrink-0 flex flex-col items-center justify-center text-center bg-gradient-to-br from-pink-600 to-purple-700 text-white px-6 snap-start">
+  <!-- Слайд 3: Что вы получите -->
+  <section class="w-screen h-screen flex-shrink-0 flex flex-col items-center justify-center text-center bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 snap-start">
+    <h2 class="text-4xl font-semibold mb-4">Что вы найдёте в этом продукте</h2>
+    <p class="max-w-xl text-lg">Глубинную диагностику, поддержку, план действий и осознание внутренних ресурсов, чтобы проживать жизнь в соответствии с собой.</p>
+  </section>
+
+  <!-- Слайд 4: Отзывы -->
+  <section class="w-screen h-screen flex-shrink-0 flex flex-col items-center justify-center text-center bg-black text-white px-6 snap-start">
     <h2 class="text-4xl font-semibold mb-4">Отзывы клиентов</h2>
-    <p class="max-w-xl text-lg">Более 300 женщин уже прошли путь осознанности и доверия к себе с Алиной.</p>
+    <p class="max-w-xl text-lg text-gray-300">Более 300 женщин уже почувствовали трансформацию после сессий — они стали увереннее, спокойнее и целостнее.</p>
+  </section>
+
+  <!-- Слайд 5: Консультации -->
+  <section class="w-screen h-screen flex-shrink-0 flex flex-col items-center justify-center text-center bg-white text-black px-6 snap-start">
+    <h2 class="text-4xl font-semibold mb-4">Консультации</h2>
+    <p class="max-w-xl text-lg text-gray-700">Запишитесь на индивидуальную консультацию и начните путь изменений уже сегодня. Места ограничены.</p>
   </section>
 </div>
+
+<script>
+  const slider = document.getElementById('slider');
+  let currentSlide = 0;
+  const totalSlides = slider.children.length;
+
+  function scrollSlides(direction) {
+    currentSlide = Math.max(0, Math.min(totalSlides - 1, currentSlide + direction));
+    slider.scrollTo({
+      left: currentSlide * window.innerWidth,
+      behavior: 'smooth'
+    });
+  }
+</script>
+
+<!-- Индикаторы слайдов -->
+<div id="dots" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40 flex gap-2">
+  <span class="dot w-3 h-3 bg-white/50 rounded-full transition-all duration-300"></span>
+  <span class="dot w-3 h-3 bg-white/50 rounded-full transition-all duration-300"></span>
+  <span class="dot w-3 h-3 bg-white/50 rounded-full transition-all duration-300"></span>
+  <span class="dot w-3 h-3 bg-white/50 rounded-full transition-all duration-300"></span>
+  <span class="dot w-3 h-3 bg-white/50 rounded-full transition-all duration-300"></span>
+</div>
+
+<script>
+  const dots = document.querySelectorAll('.dot');
+  function updateDots() {
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('bg-white', index === currentSlide);
+      dot.classList.toggle('bg-white/50', index !== currentSlide);
+      dot.classList.toggle('scale-125', index === currentSlide);
+    });
+  }
+  slider.addEventListener('scroll', () => {
+    const slideIndex = Math.round(slider.scrollLeft / window.innerWidth);
+    if (slideIndex !== currentSlide) {
+      currentSlide = slideIndex;
+      updateDots();
+    }
+  });
+  updateDots();
+</script>
 
 </body>
 </html>
