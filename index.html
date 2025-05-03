@@ -45,6 +45,13 @@
     .arrow-right {
       right: 1rem;
     }
+      .animate-fade-in {
+      animation: fadeInSocial 1.2s ease-in-out both;
+    }
+    @keyframes fadeInSocial {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body class="bg-black text-white min-h-screen">
@@ -54,11 +61,11 @@
 <div class="arrow arrow-right" onclick="scrollSlides(1)"><i class="fas fa-chevron-right"></i></div>
 
 <!-- Горизонтальный слайдер -->
-<div id="slider" class="flex w-[500vw] h-screen snap-x snap-mandatory overflow-x-scroll scroll-smooth">
+<div id="slider" class="flex h-screen snap-x snap-mandatory overflow-x-scroll scroll-smooth w-full">
 
   <!-- Слайд 1: Приветствие -->
-  <section class="w-screen h-screen flex-shrink-0 relative flex items-center justify-center text-center snap-start">
-    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80" alt="Закат" class="absolute inset-0 w-full h-full object-cover" />
+  <section class="w-screen h-screen flex-shrink-0 opacity-0 transition-opacity duration-1000 ease-out">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80" alt="Закат" class="absolute inset-0 w-screen h-screen object-cover" />
     <div class="absolute inset-0 bg-black/40"></div>
     <div class="relative z-10 px-6 fade-in">
       <h1 class="text-4xl md:text-6xl font-bold mb-4">Добро пожаловать в мир Алины</h1>
@@ -68,25 +75,25 @@
   </section>
 
   <!-- Слайд 2: Обо мне -->
-  <section class="w-screen h-screen flex-shrink-0 flex flex-col items-center justify-center text-center bg-white text-black px-6 snap-start">
+  <section class="w-screen h-screen flex-shrink-0 $1 opacity-0 transition-opacity duration-1000 ease-out">
     <h2 class="text-4xl font-semibold mb-4">Обо мне</h2>
     <p class="max-w-xl text-lg text-gray-700">Я — Алина, практикующий нумеролог и проводник на пути к себе. Помогаю женщинам возвращать внутреннюю силу и ясность через работу с подсознанием, коучинг и энергию чисел.</p>
   </section>
 
   <!-- Слайд 3: Что вы получите -->
-  <section class="w-screen h-screen flex-shrink-0 flex flex-col items-center justify-center text-center bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 snap-start">
+  <section class="w-screen h-screen flex-shrink-0 $1 opacity-0 transition-opacity duration-1000 ease-out">
     <h2 class="text-4xl font-semibold mb-4">Что вы найдёте в этом продукте</h2>
     <p class="max-w-xl text-lg">Глубинную диагностику, поддержку, план действий и осознание внутренних ресурсов, чтобы проживать жизнь в соответствии с собой.</p>
   </section>
 
   <!-- Слайд 4: Отзывы -->
-  <section class="w-screen h-screen flex-shrink-0 flex flex-col items-center justify-center text-center bg-black text-white px-6 snap-start">
+  <section class="w-screen h-screen flex-shrink-0 $1 opacity-0 transition-opacity duration-1000 ease-out">
     <h2 class="text-4xl font-semibold mb-4">Отзывы клиентов</h2>
     <p class="max-w-xl text-lg text-gray-300">Более 300 женщин уже почувствовали трансформацию после сессий — они стали увереннее, спокойнее и целостнее.</p>
   </section>
 
   <!-- Слайд 5: Консультации -->
-  <section class="w-screen h-screen flex-shrink-0 flex flex-col items-center justify-center text-center bg-white text-black px-6 snap-start">
+  <section class="w-screen h-screen flex-shrink-0 $1 opacity-0 transition-opacity duration-1000 ease-out">
     <h2 class="text-4xl font-semibold mb-4">Консультации</h2>
     <p class="max-w-xl text-lg text-gray-700">Запишитесь на индивидуальную консультацию и начните путь изменений уже сегодня. Места ограничены.</p>
   </section>
@@ -116,6 +123,17 @@
 </div>
 
 <script>
+  const slideSections = slider.querySelectorAll('section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('opacity-100');
+        entry.target.classList.remove('opacity-0');
+      }
+    });
+  }, { threshold: 0.6 });
+  slideSections.forEach(section => observer.observe(section));
+
   const dots = document.querySelectorAll('.dot');
   function updateDots() {
     dots.forEach((dot, index) => {
@@ -132,6 +150,75 @@
     }
   });
   updateDots();
+</script>
+
+<!-- Индикаторы слайдов -->
+<div id="dots" class="fixed bottom-20 left-1/2 transform -translate-x-1/2 z-40 flex gap-2">
+  <span class="dot w-3 h-3 bg-white/50 rounded-full transition-all duration-300 cursor-pointer"></span>
+  <span class="dot w-3 h-3 bg-white/50 rounded-full transition-all duration-300 cursor-pointer"></span>
+  <span class="dot w-3 h-3 bg-white/50 rounded-full transition-all duration-300 cursor-pointer"></span>
+  <span class="dot w-3 h-3 bg-white/50 rounded-full transition-all duration-300 cursor-pointer"></span>
+  <span class="dot w-3 h-3 bg-white/50 rounded-full transition-all duration-300 cursor-pointer"></span>
+</div>
+
+<!-- Соцсети и WhatsApp -->
+<div class="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-30 flex items-center gap-6 text-white animate-fade-in">
+  <a href="https://www.instagram.com/alina_fortunalove/" target="_blank" class="hover:scale-110 transition-transform">
+    <i class="fab fa-instagram text-2xl"></i>
+  </a>
+  <a href="https://t.me/alinafortunalove" target="_blank" class="hover:scale-110 transition-transform">
+    <i class="fab fa-telegram text-2xl"></i>
+  </a>
+  <a href="https://www.facebook.com/alina.katysheva/" target="_blank" class="hover:scale-110 transition-transform">
+    <i class="fab fa-facebook text-2xl"></i>
+  </a>
+  <a href="https://wa.me/37062532959" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full shadow-md flex items-center gap-2 text-sm">
+    <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
+  </a>
+</div>
+
+<script>
+  const dots = document.querySelectorAll('.dot');
+  function updateDots() {
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('bg-white', index === currentSlide);
+      dot.classList.toggle('bg-white/50', index !== currentSlide);
+      dot.classList.toggle('scale-125', index === currentSlide);
+    });
+  }
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentSlide = index;
+      slider.scrollTo({
+        left: currentSlide * window.innerWidth,
+        behavior: 'smooth'
+      });
+      updateDots();
+    });
+  });
+  slider.addEventListener('scroll', () => {
+    const slideIndex = Math.round(slider.scrollLeft / window.innerWidth);
+    if (slideIndex !== currentSlide) {
+      currentSlide = slideIndex;
+      updateDots();
+    }
+  });
+  updateDots();
+
+<script>
+  const slideSections = slider.querySelectorAll('section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('opacity-100');
+        entry.target.classList.remove('opacity-0');
+      }
+    });
+  }, { threshold: 0.6 });
+
+  slideSections.forEach(section => {
+    observer.observe(section);
+  });
 </script>
 
 </body>
