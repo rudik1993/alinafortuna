@@ -158,77 +158,94 @@
 </div>
 
 <script>
-  const dots = document.querySelectorAll('.dot');
-  const slideSections = slider.querySelectorAll('section');
-  let currentSlide = 0;
-  const totalSlides = slider.children.length;
+const slider = document.getElementById('slider');
+const dots = document.querySelectorAll('.dot');
+const slideSections = slider.querySelectorAll('section');
+let currentSlide = 0;
+const totalSlides = slider.children.length;
 
-  function updateDots() {
-    dots.forEach((dot, index) => {
-      dot.classList.toggle('bg-white', index === currentSlide);
-      dot.classList.toggle('bg-white/50', index !== currentSlide);
-      dot.classList.toggle('scale-125', index === currentSlide);
-    });
-  }
-
-  function scrollSlides(direction) {
-    currentSlide = Math.max(0, Math.min(totalSlides - 1, currentSlide + direction));
-    slider.scrollTo({
-      left: currentSlide * window.innerWidth,
-      behavior: 'smooth'
-    });
-    updateDots();
-
-  document.getElementById('startBtn').addEventListener('click', (e) => {
-    e.preventDefault();
-    
-  });
-    currentSlide = 1;
-    slider.scrollTo({
-      left: currentSlide * window.innerWidth,
-      behavior: 'smooth'
-    });
-    updateDots();
-  });
-    currentSlide = 1;
-    slider.scrollTo({
-      left: currentSlide * window.innerWidth,
-      behavior: 'smooth'
-    });
-    updateDots();
-  });
-  }
-
+function updateDots() {
   dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      currentSlide = index;
-      slider.scrollTo({
-        left: currentSlide * window.innerWidth,
-        behavior: 'smooth'
-      });
-      updateDots();
-    });
+    dot.classList.toggle('bg-white', index === currentSlide);
+    dot.classList.toggle('bg-white/50', index !== currentSlide);
+    dot.classList.toggle('scale-125', index === currentSlide);
   });
+}
 
-  slider.addEventListener('scroll', () => {
-    const slideIndex = Math.round(slider.scrollLeft / window.innerWidth);
-    if (slideIndex !== currentSlide) {
-      currentSlide = slideIndex;
-      updateDots();
+function scrollSlides(direction) {
+  currentSlide = Math.max(0, Math.min(totalSlides - 1, currentSlide + direction));
+  slider.scrollTo({
+    left: currentSlide * window.innerWidth,
+    behavior: 'smooth'
+  });
+  updateDots();
+}
+
+document.getElementById('startBtn').addEventListener('click', (e) => {
+  e.preventDefault();
+  currentSlide = 1;
+  slider.scrollTo({
+    left: currentSlide * window.innerWidth,
+    behavior: 'smooth'
+  });
+  updateDots();
+});
+
+// Свайп для мобильных
+let isTouching = false;
+let startX = 0;
+
+slider.addEventListener('touchstart', (e) => {
+  isTouching = true;
+  startX = e.touches[0].clientX;
+});
+
+slider.addEventListener('touchend', (e) => {
+  if (!isTouching) return;
+  isTouching = false;
+  const endX = e.changedTouches[0].clientX;
+  const diff = endX - startX;
+
+  if (Math.abs(diff) > 50) {
+    scrollSlides(diff < 0 ? 1 : -1);
+  } else {
+    slider.scrollTo({
+      left: currentSlide * window.innerWidth,
+      behavior: 'smooth'
+    });
+  }
+});
+
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    currentSlide = index;
+    slider.scrollTo({
+      left: currentSlide * window.innerWidth,
+      behavior: 'smooth'
+    });
+    updateDots();
+  });
+});
+
+slider.addEventListener('scroll', () => {
+  const slideIndex = Math.round(slider.scrollLeft / window.innerWidth);
+  if (slideIndex !== currentSlide) {
+    currentSlide = slideIndex;
+    updateDots();
+  }
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('opacity-100');
+      entry.target.classList.remove('opacity-0');
     }
   });
+}, { threshold: 0.4 });
+slideSections.forEach(section => observer.observe(section));
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('opacity-100');
-        entry.target.classList.remove('opacity-0');
-      }
-    });
-  }, { threshold: 0.4 });
-  slideSections.forEach(section => observer.observe(section));
-
-  updateDots();
+updateDots();
 </script>
 
 </body>
