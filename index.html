@@ -253,6 +253,10 @@ document.getElementById('calendarModal').addEventListener('click', (e) => {
     closeCalendarModal();
   }
 });
+document.getElementById('startBtn').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.querySelector('section.bg-white')?.scrollIntoView({ behavior: 'smooth' });
+});
 </script>
 </body>
 </html>
