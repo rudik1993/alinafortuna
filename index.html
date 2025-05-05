@@ -159,8 +159,12 @@
 <!-- Нижняя часть сайта -->
 <section class="bg-white text-black py-16 px-6">
   <div class="max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold mb-6 text-center">Подробно обо мне</h2>
-    <p class="text-lg mb-4">Меня зовут Алина, и я работаю с женщинами, помогая им вернуться к себе, снять внутренние блоки и страхи, обрести опору внутри и почувствовать своё предназначение. Я сочетаю коучинг, нумерологию, подсознательную работу и энергонастройку, чтобы привести вас к жизни в гармонии с собой.</p>
+    <h2 class="text-3xl font-bold mb-6 text-center">Обо мне</h2>
+    <p class="text-lg">Я — Алина, нумеролог и проводник. Помогаю женщинам вернуться к себе, восстановить внутреннюю опору и обрести ясность.</p>
+    <button onclick="toggleMoreInfo('aboutMore')" class="mt-2 text-purple-600 hover:underline">Подробнее</button>
+    <div id="aboutMore" class="hidden mt-4 text-gray-800">
+      <p class="text-lg">Меня зовут Алина, и я работаю с женщинами, помогая им вернуться к себе, снять внутренние блоки и страхи, обрести опору внутри и почувствовать своё предназначение. Я сочетаю коучинг, нумерологию, подсознательную работу и энергонастройку, чтобы привести вас к жизни в гармонии с собой.</p>
+    </div>
 
     <h3 class="text-2xl font-semibold mt-10 mb-4">Что входит в консультацию:</h3>
     <ul class="list-disc pl-6 space-y-2 text-lg">
@@ -257,6 +261,10 @@ document.getElementById('startBtn').addEventListener('click', (e) => {
   e.preventDefault();
   document.querySelector('section.bg-white')?.scrollIntoView({ behavior: 'smooth' });
 });
+function toggleMoreInfo(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('hidden');
+}
 </script>
 </body>
 </html>
