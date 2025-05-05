@@ -4,33 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Alina Fortuna — Презентация</title>
-  <script src="https://cdn.tailwindcss.com">
-let touchStartX = 0;
-slider.addEventListener('touchstart', (e) => {
-  if (e.touches.length === 1) {
-    touchStartX = e.touches[0].clientX;
-  }
-});
-slider.addEventListener('touchend', (e) => {
-  if (e.changedTouches.length === 1) {
-    const touchEndX = e.changedTouches[0].clientX;
-    const deltaX = touchEndX - touchStartX;
-    if (Math.abs(deltaX) > 50) {
-      scrollSlides(deltaX < 0 ? 1 : -1);
-    }
-  }
-});
-}
-function handleTouchEnd(e) {
-  if (e.changedTouches.length === 1) {
-    const touchEndX = e.changedTouches[0].clientX;
-    const deltaX = touchEndX - touchStartX;
-    if (Math.abs(deltaX) > 50) {
-      scrollSlides(deltaX < 0 ? 1 : -1);
-    }
-  }
-}
-</script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     html, body {
@@ -91,7 +65,7 @@ function handleTouchEnd(e) {
   <div class="arrow arrow-right" onclick="scrollSlides(1)"><i class="fas fa-chevron-right"></i></div>
 
   <!-- Слайд 1: Приветствие -->
-  $1relative w-screen min-h-screen flex-shrink-0 flex items-center justify-center text-center px-6 opacity-100 transition-opacity duration-1000 ease-out $2">
+  <section class="relative w-screen h-screen flex-shrink-0 flex items-center justify-center text-center px-6 opacity-100 transition-opacity duration-1000 ease-out">
     <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80" alt="Закат" class="absolute inset-0 w-screen h-screen object-cover" />
     <div class="absolute inset-0 bg-black/40"></div>
     <div class="relative z-10 px-6 fade-in max-w-3xl mx-auto">
@@ -103,7 +77,7 @@ function handleTouchEnd(e) {
 
   <!-- Слайд 2: Обо мне -->
 
-$1
+<section class="relative w-screen h-screen flex-shrink-0 flex items-center justify-center text-center px-6 opacity-100 transition-opacity duration-1000 ease-out">
   <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80" alt="Фон" class="absolute inset-0 w-screen h-screen object-cover" />
   <div class="absolute inset-0 bg-black/40"></div>
   <div class="relative z-10 max-w-3xl mx-auto">
@@ -236,8 +210,7 @@ function scrollSlides(direction) {
 }
 
 
-}););
-});
+
 
 slider.addEventListener('scroll', () => {
   const slideIndex = Math.round(slider.scrollLeft / window.innerWidth);
