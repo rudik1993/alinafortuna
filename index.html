@@ -153,7 +153,7 @@
 </div>
 </div>
 
-<div id="mainContent" class="w-full h-8"></div>
+<div id="mainContent" class="w-full h-0"></div>
 
 <!-- Нижняя часть сайта -->
 <section class="bg-white text-black py-16 px-6">
@@ -208,9 +208,8 @@ function scrollSlides(direction) {
   updateDots();
 }
 
-document.getElementById('startBtn').addEventListener('click', (e) => {
-  e.preventDefault();
-  document.getElementById('mainContent').scrollIntoView({ behavior: 'smooth' });
+
+}););
 });
 
 slider.addEventListener('scroll', () => {
