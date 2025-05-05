@@ -4,7 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Alina Fortuna — Презентация</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com">
+let touchStartX = 0;
+function handleTouchStart(e) {
+  if (e.touches.length === 1) {
+    touchStartX = e.touches[0].clientX;
+  }
+}
+function handleTouchEnd(e) {
+  if (e.changedTouches.length === 1) {
+    const touchEndX = e.changedTouches[0].clientX;
+    const deltaX = touchEndX - touchStartX;
+    if (Math.abs(deltaX) > 50) {
+      scrollSlides(deltaX < 0 ? 1 : -1);
+    }
+  }
+}
+</script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     html, body {
@@ -62,7 +78,7 @@
 
 <div id="intro">
 <!-- Горизонтальный слайдер -->
-<div id="slider" class="flex snap-x snap-mandatory overflow-x-auto w-screen touch-pan-x">
+<div id="slider" class="flex snap-x snap-mandatory overflow-x-auto w-screen touch-pan-x touch-none" ontouchstart="handleTouchStart(event)" ontouchend="handleTouchEnd(event)">
 
   <!-- Слайд 1: Приветствие -->
   <section class="relative w-screen min-h-screen flex-shrink-0 flex items-center justify-center text-center px-6 opacity-100 transition-opacity duration-1000 ease-out">
