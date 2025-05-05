@@ -166,17 +166,21 @@
       <p class="text-lg">Меня зовут Алина, и я работаю с женщинами, помогая им вернуться к себе, снять внутренние блоки и страхи, обрести опору внутри и почувствовать своё предназначение. Я сочетаю коучинг, нумерологию, подсознательную работу и энергонастройку, чтобы привести вас к жизни в гармонии с собой.</p>
     </div>
 
-    <h3 class="text-2xl font-semibold mt-10 mb-4">Что входит в консультацию:</h3>
-    <ul class="list-disc pl-6 space-y-2 text-lg">
-      <li>Диагностика по дате рождения: предназначение, сильные и слабые стороны</li>
-      <li>Определение внутренних блоков и работа с подсознанием</li>
-      <li>Разбор запроса и индивидуальный путь решения</li>
-      <li>Энергетическая настройка и поддержка</li>
-    </ul>
+    <h3 class="text-2xl font-semibold mt-10 mb-4">Что входит в консультацию</h3>
+<p class="text-base">Вы получите диагностику и поддержку на всех уровнях. <button onclick="toggleMoreInfo('consultMore')" class="text-purple-600 hover:underline">Подробнее</button></p>
+<div id="consultMore" class="hidden mt-4 text-gray-800">
+<ul class="list-disc pl-6 space-y-2 text-lg">
+$1
+</ul>
+</div>
 
     <div class="text-center mt-12">
   <h3 class="text-2xl font-semibold mb-4">Записаться на консультацию</h3>
-  <button onclick="openCalendarModal()" class="inline-block px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-full shadow-md transition-transform hover:scale-105">Открыть календарь</button>
+  <p class="text-base">Откройте календарь, чтобы выбрать удобное время. <button onclick="toggleMoreInfo('calendarMore')" class="text-purple-600 hover:underline">Подробнее</button></p>
+  <div id="calendarMore" class="hidden mt-4 text-gray-800">
+    <p class="mb-4">Во встроенном Google Календаре вы можете выбрать свободное время для индивидуальной консультации. Просто нажмите на понравившийся слот и подтвердите бронирование. После записи вы получите подтверждение на почту.</p>
+    <button onclick="openCalendarModal()" class="mt-4 inline-block px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-full shadow-md transition-transform hover:scale-105">Открыть календарь</button>
+  </div>
 </div>
     </div>
   </div>
